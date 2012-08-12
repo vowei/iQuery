@@ -1,0 +1,6 @@
+编译命令：
+        java -cp ../../lib/antlr-3.4-complete.jar org.antlr.Tool cc/iqa/iquery/iQuery.g
+        javac -cp ../../lib/antlr-3.4-complete.jar iQueryTest.java cc/iqa/iquery/iQuery*.java cc/iqa/iquery/android/LayoutTree*.java cc/iqa/iquery/ITreeNode.java
+
+运行命令：
+	java -cp ../../lib/antlr-3.4-complete.jar:. iQueryTest /home/shiyimin/workspace/iqa/java/iquery.test/res/testParserMethod.txt

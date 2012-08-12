@@ -1,0 +1,4 @@
+﻿编译命令：
+	java -cp antlr-3.3-complete.jar org.antlr.Tool iQuery.g
+
+运行命令：
