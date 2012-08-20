@@ -12,20 +12,20 @@ import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
 import cc.iqa.iquery.ITreeNode;
-import cc.iqa.iquery.iQueryIdeParser;
+import cc.iqa.iquery.iQuery;
 import cc.iqa.iquery.iQueryParser;
 import cc.iqa.iquery.monkey.LayoutTree;
 import cc.iqa.iquery.monkey.LayoutTreeParser;
 
 public class iQueryIdeParserTest {
 	private void helper(String iquery) throws Exception {
-		iQueryParser parser = iQueryIdeParser.createParser(iquery);
+		iQueryParser parser = iQuery.createParser(iquery);
 		Assert.assertNotNull(parser);
 		Assert.assertEquals(0, parser.getErrors().size());		
 	}
 
 	private void nhelper(String iquery) throws Exception {
-		iQueryParser parser = iQueryIdeParser.createParser(iquery);
+		iQueryParser parser = iQuery.createParser(iquery);
 		Assert.assertNotNull(parser);
 		Assert.assertFalse(0 == parser.getErrors().size());		
 	}
@@ -90,7 +90,7 @@ public class iQueryIdeParserTest {
 	
 	@Test
 	public void test测试给HierarchyViewer4iOS的API调用() throws IOException, RecognitionException {
-		iQueryParser parser = iQueryIdeParser.createParser("AllApps2D > GridView");
+		iQueryParser parser = iQuery.createParser("AllApps2D > GridView");
 		List<ITreeNode> nodes = parser.query(constructTree(
 				"/media/work/workspace/iqa/java/iQA.Runtime.Test/res/testParserMethod.txt").getAllNodesCopy());
 

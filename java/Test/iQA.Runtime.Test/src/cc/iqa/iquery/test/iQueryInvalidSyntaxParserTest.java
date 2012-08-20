@@ -39,7 +39,7 @@ public class iQueryInvalidSyntaxParserTest {
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		iQueryParser parser = new iQueryParser(tokens, errors, true);
 		*/
-		iQueryParser parser = iQueryIdeParser.createParser(iquery);
+		iQueryParser parser = iQuery.createParser(iquery);
 		List<ITreeNode> result = parser.query(candidates);
 		return new Pair<List<ITreeNode>, List<String>>(result,
 				parser.getErrors());

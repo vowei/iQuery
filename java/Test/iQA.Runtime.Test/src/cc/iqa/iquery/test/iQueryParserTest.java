@@ -47,7 +47,7 @@ public class iQueryParserTest {
 	CommonTokenStream tokens = new CommonTokenStream(lexer);
 	iQueryParser parser = new iQueryParser(tokens);
 	*/
-		iQueryParser parser = iQueryIdeParser.createParser(iquery);
+		iQueryParser parser = iQuery.createParser(iquery);
 	
 	List<ITreeNode> result = parser.query(candidates);
 	// return parser.getLastMatchedElements();

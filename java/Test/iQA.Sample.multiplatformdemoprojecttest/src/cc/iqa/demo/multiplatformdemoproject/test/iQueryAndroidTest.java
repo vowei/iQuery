@@ -62,13 +62,20 @@ public class iQueryAndroidTest extends ActivityInstrumentationTestCase2 {
 	}
 	
 	public void testSimpleCreatingParserMethod() throws Exception {
-		iQueryParser parser = iQueryIdeParser.createParser("LinearLayout >> TextView [mText = 'Down Under']");
+		iQueryParser parser = iQuery.createParser("LinearLayout >> TextView [mText = 'Down Under']");
 		List<ITreeNode> candidates = new ArrayList<ITreeNode>();
 		candidates.add(new SoloTreeNode(_solo.getCurrentViews().get(0)));
 		List<ITreeNode> result = parser.query(candidates);
 		
 		Assert.assertEquals(0, parser.getErrors().size());
 		Assert.assertEquals(2, result.size());
+	}
+	
+	public void test简化后的API() throws Exception {
+		List<SoloTreeNode> r1 = iQuery.query(
+				new SoloTreeNode(_solo.getCurrentViews().get(0)), 
+				"LinearLayout >> TextView [mText = 'Down Under']");
+		Assert.assertEquals(2, r1.size());				
 	}
 
 	private List<ITreeNode> parseQueryAgainst(View root, String iquery)
