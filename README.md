@@ -5,8 +5,9 @@ iQuery for iOS is based on instrument, object-c version is not available yet, ho
 
 To use iquery in your instrument test cases, follow below steps:
 1. import [iquery.js](https://github.com/vowei/iQuery/blob/master/iOS/lib/iquery.js) in your test case.
-> #import "iquery.js";
 2. And then you can use iQuery in your code: 
+> #import "iquery.js";
+>
 > var target = UIATarget.localTarget();
 > var root = target.frontMostApp().mainWindow();
 > var assert = new Assert();
