@@ -11,11 +11,13 @@ To use iquery in your instrument test cases, follow below steps:
 
 2.  And then you can use iQuery in your code: 
     
+     `
      var target = UIATarget.localTarget(); 
      var root = target.frontMostApp().mainWindow();
      var assert = new Assert();
      var result = root.$("UIAWindow > UIASegmentedControl > UIAButton :eq(0) + UIAButton");
      assert.Equals(1, result.length);
+     `
 
 3. iquery.js contains a simplified unit test framework with it. If you want to use iQuery with your own test framework. you can remove the test framework's code in [common.js](https://github.com/vowei/iQuery/blob/master/iOS/lib/common.js).
 
@@ -30,9 +32,11 @@ Below are steps required for use iQuery in instrument test cases:
 2.  Include [antlr-runtime-3.4.jar](https://github.com/vowei/iQuery/blob/master/java/lib/antlr-runtime-3.4.jar), [iQA.Runtime.jar](https://github.com/downloads/vowei/iQuery/iQA.Runtime.jar) and [iQA.Runtime.Instrument.jar](https://github.com/downloads/vowei/iQuery/iQA.Runtime.Instrument.jar) in your project's build path.
 3.  Import antlr and iQuery packages in your code:
     
+    `
      import org.antlr.runtime.*;
      import cc.iqa.iquery.*;
      import cc.iqa.iquery.android.*;
+    `
 
 4. And use it:
    
