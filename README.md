@@ -32,21 +32,20 @@ Below are steps required for use iQuery in instrument test cases:
 
 1.  Create an android unit test project, you may include [robotium] (https://code.google.com/p/robotium/) in the project.
 2.  Include [antlr-runtime-3.4.jar](https://github.com/vowei/iQuery/blob/master/java/lib/antlr-runtime-3.4.jar), [iQA.Runtime.jar](https://github.com/downloads/vowei/iQuery/iQA.Runtime.jar) and [iQA.Runtime.Instrument.jar](https://github.com/downloads/vowei/iQuery/iQA.Runtime.Instrument.jar) in your project's build path.
-3.  Import antlr and iQuery packages in your code:
+
+Import antlr and iQuery packages in your code:
     
-    `
      import org.antlr.runtime.*;
      import cc.iqa.iquery.*;
      import cc.iqa.iquery.android.*;
-    `
 
-4. And use it:
+And use it:
    
     List<SoloTreeNode> result = iQuery.query(new SoloTreeNode(
         _solo.getCurrentViews().get(0)), 
         "LinearLayout >> TextView [mText = 'Down Under']");
 
-5. If an invalid query is given, iQuery.query will throw a iQueryParserException object, you can get details errors by calling e.getErrors() - the errors message are Chinese. :(
+3. If an invalid query is given, iQuery.query will throw a iQueryParserException object, you can get details errors by calling e.getErrors() - the errors message are Chinese. :(
 
 for detailed usage, please read the test sources: https://github.com/vowei/iQuery/blob/master/java/Test/iQA.Runtime.Test/src/cc/iqa/iquery/test/iQueryParserTest.java
  
