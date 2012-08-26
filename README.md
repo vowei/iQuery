@@ -7,13 +7,13 @@ To use iquery in your instrument test cases, follow below steps:
 
 1.  import [iquery.js](https://github.com/vowei/iQuery/blob/master/iOS/lib/iquery.js) in your test case.
 2.  And then you can use iQuery in your code: 
-
-    `#import "iquery.js";`
-    `var target = UIATarget.localTarget(); 
+    
+    #import "iquery.js";
+    var target = UIATarget.localTarget(); 
     var root = target.frontMostApp().mainWindow();
     var assert = new Assert();
     var result = root.$("UIAWindow > UIASegmentedControl > UIAButton :eq(0) + UIAButton");
-    assert.Equals(1, result.length);`
+    assert.Equals(1, result.length);
 
 3. iquery.js contains a simplified unit test framework with it. If you want to use iQuery with your own test framework. you can remove the test framework's code in [common.js](https://github.com/vowei/iQuery/blob/master/iOS/lib/common.js).
 
