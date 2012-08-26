@@ -1,6 +1,8 @@
 iQuery is a ui control query library, currently supports for iOS and Android UI automation are implemented.
 
-### iOS usage
+iOS usage
+---------
+
 iQuery for iOS is based on instrument, object-c version is not available yet, however, since it is based on antlr, it can be extended to object-c version quite easily.
 
 To use iquery in your instrument test cases, follow below steps:
@@ -23,7 +25,9 @@ To use iquery in your instrument test cases, follow below steps:
 
 for detailed usage, please read the test sources: https://github.com/vowei/iQuery/blob/master/iOS/sampleTest.js
 
-### Android usage
+Android usage
+-------------
+
 iQuery for android supports instrument test cases, and query text from hierarchyviewer output.
 
 Below are steps required for use iQuery in instrument test cases:
@@ -47,7 +51,4 @@ Below are steps required for use iQuery in instrument test cases:
 5. If an invalid query is given, iQuery.query will throw a iQueryParserException object, you can get details errors by calling e.getErrors() - the errors message are Chinese. :(
 
 for detailed usage, please read the test sources: https://github.com/vowei/iQuery/blob/master/java/Test/iQA.Runtime.Test/src/cc/iqa/iquery/test/iQueryParserTest.java
- 
-
-
  
