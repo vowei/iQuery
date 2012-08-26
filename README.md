@@ -14,7 +14,7 @@ To use iquery in your instrument test cases, follow below steps:
 2.  And then you can use iQuery in your code.
 3. iquery.js contains a simplified unit test framework with it. If you want to use iQuery with your own test framework. you can remove the test framework's code in [common.js](https://github.com/vowei/iQuery/blob/master/iOS/lib/common.js).
 
-Below is a sample usage, for detailed usage, please read the test sources: https://github.com/vowei/iQuery/blob/master/iOS/sampleTest.js:
+Below is a sample usage, for detailed usage, please read the test sources: https://github.com/vowei/iQuery/blob/master/iOS/sampleTest.js :
       
      var target = UIATarget.localTarget(); 
      var root = target.frontMostApp().mainWindow();
