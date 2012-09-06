@@ -27,6 +27,23 @@ public class iQuery {
 		}
 	}
 	
+    public static iQueryParser createParser(String iquery, iQueryParser template) throws IOException,
+			RecognitionException {
+	return createParser(iquery, template, false);
+    }
+
+    public static iQueryParser createParser(String iquery, iQueryParser template, boolean debug) throws IOException,
+			RecognitionException {
+		InputStream query = new ByteArrayInputStream(iquery.getBytes("utf8"));
+		ANTLRInputStream input = new ANTLRInputStream(query);
+		List<String> errors = new ArrayList<String>();
+		iQueryLexer lexer = new iQueryLexer(input, errors);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		iQueryParser parser = new iQueryParser(tokens, errors, debug, template);
+
+		return parser;
+	}
+
 	public static iQueryParser createParser(String iquery) throws IOException,
 			RecognitionException {
 		return createParser(iquery, true);
@@ -34,12 +51,18 @@ public class iQuery {
 
 	public static iQueryParser createParser(String iquery,
 			boolean registerPseudo) throws IOException, RecognitionException {
+	    return createParser(iquery, registerPseudo, true);
+	}
+
+	public static iQueryParser createParser(String iquery,
+						boolean registerPseudo, 
+						boolean debug) throws IOException, RecognitionException {
 		InputStream query = new ByteArrayInputStream(iquery.getBytes("utf8"));
 		ANTLRInputStream input = new ANTLRInputStream(query);
 		List<String> errors = new ArrayList<String>();
 		iQueryLexer lexer = new iQueryLexer(input, errors);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		iQueryParser parser = new iQueryParser(tokens, errors, true);
+		iQueryParser parser = new iQueryParser(tokens, errors, debug);
 
 		if (registerPseudo) {
 		    registerPseudoAttributes(parser);

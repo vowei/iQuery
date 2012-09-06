@@ -53,6 +53,15 @@ public iQueryParser(TokenStream input, List<String> errors, boolean debug) {
     _debug = debug;
 }
 
+public iQueryParser(TokenStream input, List<String> errors, boolean debug, iQueryParser template) {
+    this(input);
+    
+    _errors = errors;
+    _debug = debug;
+    _pseudoAttrs = template._pseudoAttrs;
+    _pseudoClasses = template._pseudoClasses;
+}
+
 public String getErrorMessage(RecognitionException e,
                               String[] tokenNames)
 {
@@ -186,7 +195,8 @@ private List<ITreeNode> filterPseudo(List<ITreeNode> candidates, String pseudoCl
     if ( candidates == null ) 
         return new ArrayList<ITreeNode>();
     if ( !_pseudoClasses.containsKey(pseudoClass) ) {
-        throw new IllegalStateException("无法处理的伪类：[" + pseudoClass + "]");
+        _errors.add("无法处理的伪类：[" + pseudoClass + "]");
+        return new ArrayList<ITreeNode>();
     }
 
     IPseudoClass func = _pseudoClasses.get(pseudoClass);
@@ -199,6 +209,15 @@ private List<ITreeNode> filterPseudo(List<ITreeNode> candidates, String pseudoCl
     }
      
     return result;
+}
+
+private String getPseudoAttributeValue(ITreeNode node, String pseudoAttribute) {
+    if ( !_pseudoAttrs.containsKey(pseudoAttribute) ) {
+        _errors.add("无法处理的伪属性：[" + pseudoAttribute + "]");
+        return null;
+    } else {
+        return _pseudoAttrs.get(pseudoAttribute).resolve(node);
+    }
 }
 
 private void debug(String message) {    
@@ -370,38 +389,36 @@ multi_attributes [List<ITreeNode> candidates] returns [List<ITreeNode> survival]
         {
             List<ITreeNode> result = new ArrayList<ITreeNode>();
 
-            if ( _pseudoAttrs.containsKey($attr.text) ) {
-                String optext = $op.text;
-                String vtext = $v.text;
-                String criteria = vtext.substring(1, vtext.length() - 1);
+            String optext = $op.text;
+            String vtext = $v.text;
+            String criteria = vtext.substring(1, vtext.length() - 1);
                 
-                for ( int i = 0; i < $candidates.size(); ++i ) {     
-                    ITreeNode node = $candidates.get(i);
-                    String value = _pseudoAttrs.get($attr.text).resolve(node);
-
-                    if ( optext.compareTo("=") == 0 ) {
-                        if ( value != null && value.compareTo(criteria) == 0 ) {
-                            result.add(node);   
-                        }
-                    } else if ( optext.compareTo("!=") == 0 ) {
-                        if ( value == null || value.compareTo(criteria) != 0 ) {
-                            result.add(node);   
-                        }
-                    } else if ( optext.compareTo("$=") == 0 )  {
-                        if ( value != null && value.endsWith(criteria) ) {
-                            result.add(node);
-                        }
-                    } else if ( optext.compareTo("^=") == 0 ) {
-                        if ( value != null && value.startsWith(criteria) ) {
-                            result.add(node);
-                        }
-                    } else if ( optext.compareTo("*=") == 0 ) {
-                        if ( value != null && value.indexOf(criteria) >= 0 ) {
-                            result.add(node);
-                        }
+            for ( int i = 0; i < $candidates.size(); ++i ) {     
+                ITreeNode node = $candidates.get(i);
+                String value = getPseudoAttributeValue(node, $attr.text);
+                    
+                if ( optext.compareTo("=") == 0 ) {
+                    if ( value != null && value.compareTo(criteria) == 0 ) {
+                        result.add(node);   
                     }   
-                }                
-            }
+                } else if ( optext.compareTo("!=") == 0 ) {
+                    if ( value == null || value.compareTo(criteria) != 0 ) {
+                        result.add(node);   
+                    }
+                } else if ( optext.compareTo("$=") == 0 )  {
+                    if ( value != null && value.endsWith(criteria) ) {
+                            result.add(node);
+                    }
+                } else if ( optext.compareTo("^=") == 0 ) {
+                    if ( value != null && value.startsWith(criteria) ) {
+                        result.add(node);
+                    }
+                } else if ( optext.compareTo("*=") == 0 ) {
+                    if ( value != null && value.indexOf(criteria) >= 0 ) {
+                        result.add(node);
+                    }
+                }   
+            }                
 
             $survival = result;
         }
@@ -464,38 +481,36 @@ multi_attributes [List<ITreeNode> candidates] returns [List<ITreeNode> survival]
         {
             List<ITreeNode> result = new ArrayList<ITreeNode>();
 
-            if ( _pseudoAttrs.containsKey($attr.text) ) {
-                String optext = $num_comp_op.text;
-                String vtext = $v.text;
-                double criteria = parseNum(vtext);
+            String optext = $num_comp_op.text;
+            String vtext = $v.text;
+            double criteria = parseNum(vtext);
+            
+            for ( int i = 0; i < $candidates.size(); ++i ){
+                ITreeNode node = $candidates.get(i);
+                String pv = getPseudoAttributeValue(node, $attr.text);
                 
-                for ( int i = 0; i < $candidates.size(); ++i ){
-                    ITreeNode node = $candidates.get(i);
-                    String pv = _pseudoAttrs.get($attr.text).resolve(node);
-
-                    if ( pv != null && pv.length() > 0 ) {
-                        double value = parseNum(pv);
-                        
-                        if ( optext.compareTo("=") == 0 ) {
-                            if ( value == criteria ) {
-                                result.add(node);
-                            }
-                        } else if ( optext.compareTo(">") == 0 ) {
-                            if ( value > criteria ) { 
-                                result.add(node);
-                            }
-                        } else if ( optext.compareTo("<") == 0 ) {
-                            if ( value < criteria ) { 
-                                result.add(node);
-                            }
-                        } else if ( optext.compareTo(">=") == 0 ) {
-                            if ( value >= criteria ) {
-                                result.add(node);
-                            }
-                        } else if ( optext.compareTo("<=") == 0 ) {
-                            if ( value <= criteria ) {
-                                result.add(node);
-                            }
+                if ( pv != null && pv.length() > 0 ) {
+                    double value = parseNum(pv);
+                    
+                    if ( optext.compareTo("=") == 0 ) {
+                        if ( value == criteria ) {
+                            result.add(node);
+                        }
+                    } else if ( optext.compareTo(">") == 0 ) {
+                        if ( value > criteria ) { 
+                            result.add(node);
+                        }
+                    } else if ( optext.compareTo("<") == 0 ) {
+                        if ( value < criteria ) { 
+                            result.add(node);
+                        }
+                    } else if ( optext.compareTo(">=") == 0 ) {
+                        if ( value >= criteria ) {
+                            result.add(node);
+                        }
+                    } else if ( optext.compareTo("<=") == 0 ) {
+                        if ( value <= criteria ) {
+                            result.add(node);
                         }
                     }
                 }

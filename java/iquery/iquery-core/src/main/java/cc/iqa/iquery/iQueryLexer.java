@@ -1,4 +1,4 @@
-// $ANTLR 3.4 cc/iqa/iquery/iQuery.g 2012-08-09 21:02:29
+// $ANTLR 3.4 cc/iqa/iquery/iQuery.g 2012-09-06 19:14:26
 
 package cc.iqa.iquery;
 
@@ -464,8 +464,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = DESCENDANT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:822:11: ( '>>' )
-            // cc/iqa/iquery/iQuery.g:822:13: '>>'
+            // cc/iqa/iquery/iQuery.g:837:11: ( '>>' )
+            // cc/iqa/iquery/iQuery.g:837:13: '>>'
             {
             match(">>"); 
 
@@ -487,8 +487,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:823:3: ( 'eq' )
-            // cc/iqa/iquery/iQuery.g:823:5: 'eq'
+            // cc/iqa/iquery/iQuery.g:838:3: ( 'eq' )
+            // cc/iqa/iquery/iQuery.g:838:5: 'eq'
             {
             match("eq"); 
 
@@ -510,8 +510,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:824:3: ( 'gt' )
-            // cc/iqa/iquery/iQuery.g:824:5: 'gt'
+            // cc/iqa/iquery/iQuery.g:839:3: ( 'gt' )
+            // cc/iqa/iquery/iQuery.g:839:5: 'gt'
             {
             match("gt"); 
 
@@ -533,8 +533,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:825:3: ( 'lt' )
-            // cc/iqa/iquery/iQuery.g:825:5: 'lt'
+            // cc/iqa/iquery/iQuery.g:840:3: ( 'lt' )
+            // cc/iqa/iquery/iQuery.g:840:5: 'lt'
             {
             match("lt"); 
 
@@ -556,8 +556,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:826:4: ( 'not' )
-            // cc/iqa/iquery/iQuery.g:826:6: 'not'
+            // cc/iqa/iquery/iQuery.g:841:4: ( 'not' )
+            // cc/iqa/iquery/iQuery.g:841:6: 'not'
             {
             match("not"); 
 
@@ -579,8 +579,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = CONTAINS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:827:9: ( 'contains' )
-            // cc/iqa/iquery/iQuery.g:827:11: 'contains'
+            // cc/iqa/iquery/iQuery.g:842:9: ( 'contains' )
+            // cc/iqa/iquery/iQuery.g:842:11: 'contains'
             {
             match("contains"); 
 
@@ -602,8 +602,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = EMPTY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:830:6: ( 'empty' )
-            // cc/iqa/iquery/iQuery.g:830:8: 'empty'
+            // cc/iqa/iquery/iQuery.g:845:6: ( 'empty' )
+            // cc/iqa/iquery/iQuery.g:845:8: 'empty'
             {
             match("empty"); 
 
@@ -625,8 +625,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = HAS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:833:4: ( 'has' )
-            // cc/iqa/iquery/iQuery.g:833:6: 'has'
+            // cc/iqa/iquery/iQuery.g:848:4: ( 'has' )
+            // cc/iqa/iquery/iQuery.g:848:6: 'has'
             {
             match("has"); 
 
@@ -648,8 +648,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PREV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:835:5: ( 'prev' )
-            // cc/iqa/iquery/iQuery.g:835:7: 'prev'
+            // cc/iqa/iquery/iQuery.g:850:5: ( 'prev' )
+            // cc/iqa/iquery/iQuery.g:850:7: 'prev'
             {
             match("prev"); 
 
@@ -671,8 +671,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:836:5: ( 'next' )
-            // cc/iqa/iquery/iQuery.g:836:7: 'next'
+            // cc/iqa/iquery/iQuery.g:851:5: ( 'next' )
+            // cc/iqa/iquery/iQuery.g:851:7: 'next'
             {
             match("next"); 
 
@@ -694,8 +694,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = SIBLINGS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:837:9: ( 'siblings' )
-            // cc/iqa/iquery/iQuery.g:837:11: 'siblings'
+            // cc/iqa/iquery/iQuery.g:852:9: ( 'siblings' )
+            // cc/iqa/iquery/iQuery.g:852:11: 'siblings'
             {
             match("siblings"); 
 
@@ -717,8 +717,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NTH_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:838:10: ( 'nth-child' )
-            // cc/iqa/iquery/iQuery.g:838:12: 'nth-child'
+            // cc/iqa/iquery/iQuery.g:853:10: ( 'nth-child' )
+            // cc/iqa/iquery/iQuery.g:853:12: 'nth-child'
             {
             match("nth-child"); 
 
@@ -740,8 +740,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PARENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:839:7: ( 'parent' )
-            // cc/iqa/iquery/iQuery.g:839:9: 'parent'
+            // cc/iqa/iquery/iQuery.g:854:7: ( 'parent' )
+            // cc/iqa/iquery/iQuery.g:854:9: 'parent'
             {
             match("parent"); 
 
@@ -763,8 +763,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LAST_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:847:11: ( 'last-child' )
-            // cc/iqa/iquery/iQuery.g:847:13: 'last-child'
+            // cc/iqa/iquery/iQuery.g:862:11: ( 'last-child' )
+            // cc/iqa/iquery/iQuery.g:862:13: 'last-child'
             {
             match("last-child"); 
 
@@ -786,8 +786,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FIRST_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:848:12: ( 'first-child' )
-            // cc/iqa/iquery/iQuery.g:848:14: 'first-child'
+            // cc/iqa/iquery/iQuery.g:863:12: ( 'first-child' )
+            // cc/iqa/iquery/iQuery.g:863:14: 'first-child'
             {
             match("first-child"); 
 
@@ -809,8 +809,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FIRST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:849:6: ( 'first' )
-            // cc/iqa/iquery/iQuery.g:849:8: 'first'
+            // cc/iqa/iquery/iQuery.g:864:6: ( 'first' )
+            // cc/iqa/iquery/iQuery.g:864:8: 'first'
             {
             match("first"); 
 
@@ -832,8 +832,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LAST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:850:5: ( 'last' )
-            // cc/iqa/iquery/iQuery.g:850:7: 'last'
+            // cc/iqa/iquery/iQuery.g:865:5: ( 'last' )
+            // cc/iqa/iquery/iQuery.g:865:7: 'last'
             {
             match("last"); 
 
@@ -855,10 +855,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = INTEGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:851:8: ( ( DIGIT )+ )
-            // cc/iqa/iquery/iQuery.g:851:10: ( DIGIT )+
+            // cc/iqa/iquery/iQuery.g:866:8: ( ( DIGIT )+ )
+            // cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
             {
-            // cc/iqa/iquery/iQuery.g:851:10: ( DIGIT )+
+            // cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -913,10 +913,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PERCENTAGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:852:11: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%' )
-            // cc/iqa/iquery/iQuery.g:852:13: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%'
+            // cc/iqa/iquery/iQuery.g:867:11: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%' )
+            // cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%'
             {
-            // cc/iqa/iquery/iQuery.g:852:13: ( '+' | '-' )?
+            // cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -943,7 +943,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:852:26: ( DIGIT )+
+            // cc/iqa/iquery/iQuery.g:867:26: ( DIGIT )+
             int cnt3=0;
             loop3:
             do {
@@ -982,7 +982,7 @@ public class iQueryLexer extends Lexer {
             } while (true);
 
 
-            // cc/iqa/iquery/iQuery.g:852:33: ( '.' ( DIGIT )+ )?
+            // cc/iqa/iquery/iQuery.g:867:33: ( '.' ( DIGIT )+ )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -991,11 +991,11 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:852:34: '.' ( DIGIT )+
+                    // cc/iqa/iquery/iQuery.g:867:34: '.' ( DIGIT )+
                     {
                     match('.'); 
 
-                    // cc/iqa/iquery/iQuery.g:852:38: ( DIGIT )+
+                    // cc/iqa/iquery/iQuery.g:867:38: ( DIGIT )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -1058,10 +1058,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:853:6: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? )
-            // cc/iqa/iquery/iQuery.g:853:8: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )?
+            // cc/iqa/iquery/iQuery.g:868:6: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? )
+            // cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )?
             {
-            // cc/iqa/iquery/iQuery.g:853:8: ( '+' | '-' )?
+            // cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1088,7 +1088,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:853:21: ( DIGIT )+
+            // cc/iqa/iquery/iQuery.g:868:21: ( DIGIT )+
             int cnt7=0;
             loop7:
             do {
@@ -1127,7 +1127,7 @@ public class iQueryLexer extends Lexer {
             } while (true);
 
 
-            // cc/iqa/iquery/iQuery.g:853:28: ( '.' ( DIGIT )+ )?
+            // cc/iqa/iquery/iQuery.g:868:28: ( '.' ( DIGIT )+ )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1136,11 +1136,11 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:853:29: '.' ( DIGIT )+
+                    // cc/iqa/iquery/iQuery.g:868:29: '.' ( DIGIT )+
                     {
                     match('.'); 
 
-                    // cc/iqa/iquery/iQuery.g:853:33: ( DIGIT )+
+                    // cc/iqa/iquery/iQuery.g:868:33: ( DIGIT )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -1199,7 +1199,7 @@ public class iQueryLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // cc/iqa/iquery/iQuery.g:854:15: ( ( '0' .. '9' ) )
+            // cc/iqa/iquery/iQuery.g:869:15: ( ( '0' .. '9' ) )
             // cc/iqa/iquery/iQuery.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1227,8 +1227,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = ELEMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:855:8: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )* )
-            // cc/iqa/iquery/iQuery.g:855:10: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
+            // cc/iqa/iquery/iQuery.g:870:8: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )* )
+            // cc/iqa/iquery/iQuery.g:870:10: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1240,7 +1240,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:855:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
+            // cc/iqa/iquery/iQuery.g:870:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
             loop10:
             do {
                 int alt10=2;
@@ -1290,8 +1290,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = ASTERISK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:856:9: ( '*' )
-            // cc/iqa/iquery/iQuery.g:856:11: '*'
+            // cc/iqa/iquery/iQuery.g:871:9: ( '*' )
+            // cc/iqa/iquery/iQuery.g:871:11: '*'
             {
             match('*'); 
 
@@ -1311,12 +1311,12 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = QUOTED_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:857:14: ( '\\'' ( . )+ '\\'' )
-            // cc/iqa/iquery/iQuery.g:857:16: '\\'' ( . )+ '\\''
+            // cc/iqa/iquery/iQuery.g:872:14: ( '\\'' ( . )+ '\\'' )
+            // cc/iqa/iquery/iQuery.g:872:16: '\\'' ( . )+ '\\''
             {
             match('\''); 
 
-            // cc/iqa/iquery/iQuery.g:857:21: ( . )+
+            // cc/iqa/iquery/iQuery.g:872:21: ( . )+
             int cnt11=0;
             loop11:
             do {
@@ -1333,7 +1333,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:857:21: .
+            	    // cc/iqa/iquery/iQuery.g:872:21: .
             	    {
             	    matchAny(); 
 
@@ -1368,10 +1368,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:858:8: ( ( '\\r' )? '\\n' )
-            // cc/iqa/iquery/iQuery.g:858:10: ( '\\r' )? '\\n'
+            // cc/iqa/iquery/iQuery.g:873:8: ( ( '\\r' )? '\\n' )
+            // cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )? '\\n'
             {
-            // cc/iqa/iquery/iQuery.g:858:10: ( '\\r' )?
+            // cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1380,7 +1380,7 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:858:10: '\\r'
+                    // cc/iqa/iquery/iQuery.g:873:10: '\\r'
                     {
                     match('\r'); 
 
@@ -1408,8 +1408,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:859:3: ( ( ' ' | '\\t' ) )
-            // cc/iqa/iquery/iQuery.g:859:5: ( ' ' | '\\t' )
+            // cc/iqa/iquery/iQuery.g:874:3: ( ( ' ' | '\\t' ) )
+            // cc/iqa/iquery/iQuery.g:874:5: ( ' ' | '\\t' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
