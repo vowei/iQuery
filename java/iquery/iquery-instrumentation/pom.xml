@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cc.iqa.iquery</groupId>
+    <artifactId>iquery</artifactId>
+    <version>1.0-RC</version>
+  </parent>
+  <artifactId>iquery-instrumentation</artifactId>
+  <packaging>jar</packaging>
+  <name>iquery-instrumentation</name>
+  <url>http://www.vowei.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android</artifactId>
+      <version>1.5_r4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android-test</artifactId>
+      <version>1.5_r4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.jayway.android.robotium</groupId>
+      <artifactId>robotium-solo</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>cc.iqa.iquery</groupId>
+      <artifactId>iquery-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+</project>
