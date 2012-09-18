@@ -12,6 +12,28 @@ var target = UIATarget.localTarget();
 var root = target.frontMostApp().mainWindow();
 var assert = new Assert();
 
+test("测试注册新的伪属性", function() {
+	var iq = new iQuery("", true);
+	iq.parser.registerPseudoAttr("text", function(uiaobj) {
+		if ( uiaobj != undefined ) {
+		    return uiaobj.name();
+		}
+	});
+
+	var result = root.$("> :button[:text = 'Second']", iq);
+	assert.Equals(1, result.length);
+});
+
+test("测试注册新的伪类", function() {
+	var iq = new iQuery("", true);
+	iq.parser.registerPseudoClass("switch", function(uiaobj) {
+		return isMatch(uiaobj, new Array("UIASwitch"));
+	});
+	var result = root.$("> :switch", iq);
+	
+	assert.Equals(1, result.length);
+});
+
 test("测试对UIAElement的扩展", function() {
     var result = root.$("> [value >= 59%]");
     assert.Equals(1, result.length);

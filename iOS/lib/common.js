@@ -212,6 +212,45 @@ function child(element) {
     }
 }
 
+function isMatch(element, expects) {
+    var control = element;
+    var names = expects;
+
+    if (type(names) != 'Array') {
+        names = [];
+        names.push(expects);
+    }
+
+    var ctrlName = type(control);
+    debug("ctrlName: " + ctrlName);
+    for (var j = 0; j < names.length; ++j) {
+	if (ctrlName == names[j]) {
+	    return true;
+	}
+    }
+
+    return false;
+}
+
+function _filterPseudoImpl(candidates, cls, pseudo_defines, errors) {
+    debug("_filterPseudoImpl: " + cls);
+    debug(pseudo_defines);
+    var functor = pseudo_defines[cls];
+    var result = [];
+    if ( functor != undefined ) {
+	for ( var i = 0; i < candidates.length; ++i ) {
+	    var candidate = candidates[i];
+	    if ( functor.apply(candidate) ) {
+		result.push(candidate);
+	    }
+	}
+    } else { 
+        errors.push("未注册的伪类：" + cls);
+    }
+
+    return result;
+}
+
 function match(elements, expects) {
     var controls = elements;
     var names = expects;

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 iQuery.g 2012-07-30 09:19:31
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 iQuery.g 2012-09-18 14:49:54
 
 var iQueryParser = function(input, state) {
     if (!state) {
@@ -24,8 +24,24 @@ var iQueryParser = function(input, state) {
         }
 
         this._pseudo_attrs = new Object();
-        this.registerPseudoAttrs = function(attr, functor) {
+        this.registerPseudoAttr = function(attr, functor) {
             this._pseudo_attrs[attr] = functor;
+        }
+
+        this._pseudo_classes = new Object();
+        this.registerPseudoClass = function(cls, functor) {
+            this._pseudo_classes[cls] = functor;
+        }
+
+        this.filterPseudo = function(candidates, cls) {
+            return _filterPseudoImpl(candidates, cls, this._pseudo_classes, _errors);
+        }
+
+        this.setTemplate = function(template) {
+            if ( template != null ) {
+                this._pseudo_attrs = template._pseudo_attrs;
+                this._pseudo_classes = template._pseudo_classes;
+            }
         }
 
     }).call(this);
@@ -44,6 +60,12 @@ var iQueryParser = function(input, state) {
 
 org.antlr.lang.augmentObject(iQueryParser, {
     EOF: -1,
+    T__35: 35,
+    T__36: 36,
+    T__37: 37,
+    T__38: 38,
+    T__39: 39,
+    T__40: 40,
     T__41: 41,
     T__42: 42,
     T__43: 43,
@@ -55,12 +77,6 @@ org.antlr.lang.augmentObject(iQueryParser, {
     T__49: 49,
     T__50: 50,
     T__51: 51,
-    T__52: 52,
-    T__53: 53,
-    T__54: 54,
-    T__55: 55,
-    T__56: 56,
-    T__57: 57,
     NEWLINE: 4,
     DESCENDANT: 5,
     FLOAT: 6,
@@ -77,32 +93,32 @@ org.antlr.lang.augmentObject(iQueryParser, {
     FIRST_CHILD: 17,
     FIRST: 18,
     LAST: 19,
-    TEXT: 20,
-    RADIO: 21,
-    EMPTY: 22,
-    VISIBLE: 23,
-    HIDDEN: 24,
-    FOCUS: 25,
-    ENABLED: 26,
-    DISABLED: 27,
-    CHECKBOX: 28,
-    BUTTON: 29,
-    IMAGE: 30,
-    LABEL: 31,
-    PARENT: 32,
-    ASTERISK: 33,
-    HAS: 34,
-    CHECKED: 35,
-    PREV: 36,
-    NEXT: 37,
-    SIBLINGS: 38,
-    DIGIT: 39,
-    WS: 40
+    EMPTY: 20,
+    VISIBLE: 21,
+    HIDDEN: 22,
+    FOCUS: 23,
+    ENABLED: 24,
+    DISABLED: 25,
+    PARENT: 26,
+    ASTERISK: 27,
+    HAS: 28,
+    CHECKED: 29,
+    PREV: 30,
+    NEXT: 31,
+    SIBLINGS: 32,
+    DIGIT: 33,
+    WS: 34
 });
 
 (function(){
 // public class variables
 var EOF= -1,
+    T__35= 35,
+    T__36= 36,
+    T__37= 37,
+    T__38= 38,
+    T__39= 39,
+    T__40= 40,
     T__41= 41,
     T__42= 42,
     T__43= 43,
@@ -114,12 +130,6 @@ var EOF= -1,
     T__49= 49,
     T__50= 50,
     T__51= 51,
-    T__52= 52,
-    T__53= 53,
-    T__54= 54,
-    T__55= 55,
-    T__56= 56,
-    T__57= 57,
     NEWLINE= 4,
     DESCENDANT= 5,
     FLOAT= 6,
@@ -136,27 +146,21 @@ var EOF= -1,
     FIRST_CHILD= 17,
     FIRST= 18,
     LAST= 19,
-    TEXT= 20,
-    RADIO= 21,
-    EMPTY= 22,
-    VISIBLE= 23,
-    HIDDEN= 24,
-    FOCUS= 25,
-    ENABLED= 26,
-    DISABLED= 27,
-    CHECKBOX= 28,
-    BUTTON= 29,
-    IMAGE= 30,
-    LABEL= 31,
-    PARENT= 32,
-    ASTERISK= 33,
-    HAS= 34,
-    CHECKED= 35,
-    PREV= 36,
-    NEXT= 37,
-    SIBLINGS= 38,
-    DIGIT= 39,
-    WS= 40;
+    EMPTY= 20,
+    VISIBLE= 21,
+    HIDDEN= 22,
+    FOCUS= 23,
+    ENABLED= 24,
+    DISABLED= 25,
+    PARENT= 26,
+    ASTERISK= 27,
+    HAS= 28,
+    CHECKED= 29,
+    PREV= 30,
+    NEXT= 31,
+    SIBLINGS= 32,
+    DIGIT= 33,
+    WS= 34;
 
 // public instance methods/vars
 org.antlr.lang.extend(iQueryParser, org.antlr.runtime.Parser, {
@@ -168,7 +172,7 @@ org.antlr.lang.extend(iQueryParser, org.antlr.runtime.Parser, {
 org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
-    // iQuery.g:44:1: prog[candidates] returns [survival] : (p= selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF );
+    // iQuery.g:60:1: prog[candidates] returns [survival] : (p= selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF );
     // $ANTLR start "prog"
     prog: function(candidates) {
         var survival = null;
@@ -176,11 +180,11 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
          var p = null;
 
         try {
-            // iQuery.g:45:5: (p= selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF )
+            // iQuery.g:61:5: (p= selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF )
             var alt3=2;
             var LA3_0 = this.input.LA(1);
 
-            if ( (LA3_0==DESCENDANT||LA3_0==ELEMENT||LA3_0==ASTERISK||LA3_0==41||LA3_0==48||LA3_0==50||LA3_0==57) ) {
+            if ( (LA3_0==DESCENDANT||LA3_0==ELEMENT||LA3_0==ASTERISK||LA3_0==35||LA3_0==42||LA3_0==44||LA3_0==51) ) {
                 alt3=1;
             }
             else if ( (LA3_0==EOF||LA3_0==NEWLINE) ) {
@@ -194,13 +198,13 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
             }
             switch (alt3) {
                 case 1 :
-                    // iQuery.g:45:7: p= selectors[$candidates] ( NEWLINE )* EOF
+                    // iQuery.g:61:7: p= selectors[$candidates] ( NEWLINE )* EOF
                     this.pushFollow(iQueryParser.FOLLOW_selectors_in_prog54);
                     p=this.selectors(candidates);
 
                     this.state._fsp--;
 
-                    // iQuery.g:45:32: ( NEWLINE )*
+                    // iQuery.g:61:32: ( NEWLINE )*
                     loop1:
                     do {
                         var alt1=2;
@@ -213,7 +217,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                         switch (alt1) {
                         case 1 :
-                            // iQuery.g:45:32: NEWLINE
+                            // iQuery.g:61:32: NEWLINE
                             this.match(this.input,NEWLINE,iQueryParser.FOLLOW_NEWLINE_in_prog57); 
 
 
@@ -232,8 +236,8 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:49:7: ( NEWLINE )* EOF
-                    // iQuery.g:49:7: ( NEWLINE )*
+                    // iQuery.g:65:7: ( NEWLINE )* EOF
+                    // iQuery.g:65:7: ( NEWLINE )*
                     loop2:
                     do {
                         var alt2=2;
@@ -246,7 +250,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                         switch (alt2) {
                         case 1 :
-                            // iQuery.g:49:7: NEWLINE
+                            // iQuery.g:65:7: NEWLINE
                             this.match(this.input,NEWLINE,iQueryParser.FOLLOW_NEWLINE_in_prog78); 
 
 
@@ -278,7 +282,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:52:1: selectors[candidates] returns [survival] : p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )* ;
+    // iQuery.g:68:1: selectors[candidates] returns [survival] : p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )* ;
     // $ANTLR start "selectors"
     selectors: function(candidates) {
         var survival = null;
@@ -287,27 +291,27 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
          var c = null;
 
         try {
-            // iQuery.g:53:5: (p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )* )
-            // iQuery.g:53:7: p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )*
+            // iQuery.g:69:5: (p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )* )
+            // iQuery.g:69:7: p= multi_selectors[$candidates] (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )*
             this.pushFollow(iQueryParser.FOLLOW_multi_selectors_in_selectors107);
             p=this.multi_selectors(candidates);
 
             this.state._fsp--;
 
-            // iQuery.g:53:38: (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )*
+            // iQuery.g:69:38: (c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival] )*
             loop4:
             do {
                 var alt4=2;
                 var LA4_0 = this.input.LA(1);
 
-                if ( (LA4_0==DESCENDANT||LA4_0==ELEMENT||LA4_0==ASTERISK||LA4_0==41||LA4_0==48||LA4_0==50||LA4_0==57) ) {
+                if ( (LA4_0==DESCENDANT||LA4_0==ELEMENT||LA4_0==ASTERISK||LA4_0==35||LA4_0==42||LA4_0==44||LA4_0==51) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
                 case 1 :
-                    // iQuery.g:53:39: c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival]
+                    // iQuery.g:69:39: c= multi_selectors[($c.survival == undefined || $c.survival == null) ? $p.survival : $c.survival]
                     this.pushFollow(iQueryParser.FOLLOW_multi_selectors_in_selectors113);
                     c=this.multi_selectors((c == undefined || c == null) ? p : c);
 
@@ -347,7 +351,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:87:1: multi_selectors[candidates] returns [survival] : ( selector[$candidates] | '>' c= selector[child($candidates)] | DESCENDANT c= selector[descendant($candidates)] | '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))] );
+    // iQuery.g:79:1: multi_selectors[candidates] returns [survival] : ( selector[$candidates] | '>' c= selector[child($candidates)] | DESCENDANT c= selector[descendant($candidates)] | '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))] );
     // $ANTLR start "multi_selectors"
     multi_selectors: function(candidates) {
         var survival = null;
@@ -357,23 +361,23 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
          var selector1 = null;
 
         try {
-            // iQuery.g:88:5: ( selector[$candidates] | '>' c= selector[child($candidates)] | DESCENDANT c= selector[descendant($candidates)] | '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))] )
+            // iQuery.g:80:5: ( selector[$candidates] | '>' c= selector[child($candidates)] | DESCENDANT c= selector[descendant($candidates)] | '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))] )
             var alt5=4;
             switch ( this.input.LA(1) ) {
             case ELEMENT:
             case ASTERISK:
-            case 48:
-            case 50:
-            case 57:
+            case 42:
+            case 44:
+            case 51:
                 alt5=1;
                 break;
-            case 41:
+            case 35:
                 var LA5_2 = this.input.LA(2);
 
                 if ( (LA5_2==FLOAT) ) {
                     alt5=4;
                 }
-                else if ( (LA5_2==ELEMENT||LA5_2==ASTERISK||LA5_2==48||LA5_2==50||LA5_2==57) ) {
+                else if ( (LA5_2==ELEMENT||LA5_2==ASTERISK||LA5_2==42||LA5_2==44||LA5_2==51) ) {
                     alt5=2;
                 }
                 else {
@@ -395,8 +399,8 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
             switch (alt5) {
                 case 1 :
-                    // iQuery.g:88:7: selector[$candidates]
-                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors160);
+                    // iQuery.g:80:7: selector[$candidates]
+                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors157);
                     selector1=this.selector(candidates);
 
                     this.state._fsp--;
@@ -408,9 +412,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:92:7: '>' c= selector[child($candidates)]
-                    this.match(this.input,41,iQueryParser.FOLLOW_41_in_multi_selectors179); 
-                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors183);
+                    // iQuery.g:84:7: '>' c= selector[child($candidates)]
+                    this.match(this.input,35,iQueryParser.FOLLOW_35_in_multi_selectors176); 
+                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors180);
                     c=this.selector(child(candidates));
 
                     this.state._fsp--;
@@ -425,9 +429,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 3 :
-                    // iQuery.g:99:7: DESCENDANT c= selector[descendant($candidates)]
-                    this.match(this.input,DESCENDANT,iQueryParser.FOLLOW_DESCENDANT_in_multi_selectors202); 
-                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors206);
+                    // iQuery.g:91:7: DESCENDANT c= selector[descendant($candidates)]
+                    this.match(this.input,DESCENDANT,iQueryParser.FOLLOW_DESCENDANT_in_multi_selectors199); 
+                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors203);
                     c=this.selector(descendant(candidates));
 
                     this.state._fsp--;
@@ -442,10 +446,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 4 :
-                    // iQuery.g:106:7: '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))]
-                    this.match(this.input,41,iQueryParser.FOLLOW_41_in_multi_selectors225); 
-                    level=this.match(this.input,FLOAT,iQueryParser.FOLLOW_FLOAT_in_multi_selectors229); 
-                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors233);
+                    // iQuery.g:98:7: '>' level= FLOAT c= selector[descendant($candidates, parseInt($level.text, 10))]
+                    this.match(this.input,35,iQueryParser.FOLLOW_35_in_multi_selectors222); 
+                    level=this.match(this.input,FLOAT,iQueryParser.FOLLOW_FLOAT_in_multi_selectors226); 
+                    this.pushFollow(iQueryParser.FOLLOW_selector_in_multi_selectors230);
                     c=this.selector(descendant(candidates, parseInt((level?level.getText():null), 10)));
 
                     this.state._fsp--;
@@ -476,7 +480,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:115:1: selector[candidates] returns [survival] : (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] );
+    // iQuery.g:107:1: selector[candidates] returns [survival] : (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] );
     // $ANTLR start "selector"
     selector: function(candidates) {
         var survival = null;
@@ -486,14 +490,14 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
          var multi_attributes2 = null;
 
         try {
-            // iQuery.g:116:5: (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] )
+            // iQuery.g:108:5: (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] )
             var alt7=2;
             var LA7_0 = this.input.LA(1);
 
-            if ( (LA7_0==ELEMENT||LA7_0==ASTERISK||LA7_0==50||LA7_0==57) ) {
+            if ( (LA7_0==ELEMENT||LA7_0==ASTERISK||LA7_0==44||LA7_0==51) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==48) ) {
+            else if ( (LA7_0==42) ) {
                 alt7=2;
             }
             else {
@@ -504,29 +508,29 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
             }
             switch (alt7) {
                 case 1 :
-                    // iQuery.g:116:7: p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
-                    this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector270);
+                    // iQuery.g:108:7: p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
+                    this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector267);
                     p=this.selector_expression(candidates);
 
                     this.state._fsp--;
 
-                    // iQuery.g:117:9: ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
+                    // iQuery.g:109:9: ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
                     var alt6=3;
                     var LA6_0 = this.input.LA(1);
 
-                    if ( (LA6_0==42) ) {
+                    if ( (LA6_0==36) ) {
                         alt6=1;
                     }
-                    else if ( (LA6_0==43) ) {
+                    else if ( (LA6_0==37) ) {
                         alt6=2;
                     }
                     switch (alt6) {
                         case 1 :
-                            // iQuery.g:118:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
-                            // iQuery.g:118:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
-                            // iQuery.g:118:14: '+' n= selector_expression[next($candidates, $p.survival)]
-                            this.match(this.input,42,iQueryParser.FOLLOW_42_in_selector297); 
-                            this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector301);
+                            // iQuery.g:110:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
+                            // iQuery.g:110:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
+                            // iQuery.g:110:14: '+' n= selector_expression[next($candidates, $p.survival)]
+                            this.match(this.input,36,iQueryParser.FOLLOW_36_in_selector294); 
+                            this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector298);
                             n=this.selector_expression(next(candidates, p));
 
                             this.state._fsp--;
@@ -538,11 +542,11 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                             break;
                         case 2 :
-                            // iQuery.g:120:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
-                            // iQuery.g:120:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
-                            // iQuery.g:120:14: '~' n= selector_expression[siblings($candidates, $p.survival)]
-                            this.match(this.input,43,iQueryParser.FOLLOW_43_in_selector328); 
-                            this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector332);
+                            // iQuery.g:112:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
+                            // iQuery.g:112:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
+                            // iQuery.g:112:14: '~' n= selector_expression[siblings($candidates, $p.survival)]
+                            this.match(this.input,37,iQueryParser.FOLLOW_37_in_selector325); 
+                            this.pushFollow(iQueryParser.FOLLOW_selector_expression_in_selector329);
                             n=this.selector_expression(siblings(candidates, p));
 
                             this.state._fsp--;
@@ -567,8 +571,8 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:129:7: multi_attributes[$candidates]
-                    this.pushFollow(iQueryParser.FOLLOW_multi_attributes_in_selector363);
+                    // iQuery.g:121:7: multi_attributes[$candidates]
+                    this.pushFollow(iQueryParser.FOLLOW_multi_attributes_in_selector360);
                     multi_attributes2=this.multi_attributes(candidates);
 
                     this.state._fsp--;
@@ -605,16 +609,16 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
         return;
     })(),
 
-    // iQuery.g:135:1: num_comp_op : ( '>' | '<' | '>=' | '<=' | '=' );
+    // iQuery.g:127:1: num_comp_op : ( '>' | '<' | '>=' | '<=' | '=' );
     // $ANTLR start "num_comp_op"
     num_comp_op: function() {
         var retval = new iQueryParser.num_comp_op_return();
         retval.start = this.input.LT(1);
 
         try {
-            // iQuery.g:136:5: ( '>' | '<' | '>=' | '<=' | '=' )
+            // iQuery.g:128:5: ( '>' | '<' | '>=' | '<=' | '=' )
             // iQuery.g:
-            if ( this.input.LA(1)==41||(this.input.LA(1)>=44 && this.input.LA(1)<=47) ) {
+            if ( this.input.LA(1)==35||(this.input.LA(1)>=38 && this.input.LA(1)<=41) ) {
                 this.input.consume();
                 this.state.errorRecovery=false;
             }
@@ -643,7 +647,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:143:1: multi_attributes[candidates] returns [survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );
+    // iQuery.g:135:1: multi_attributes[candidates] returns [survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );
     // $ANTLR start "multi_attributes"
     multi_attributes: function(candidates) {
         var survival = null;
@@ -656,21 +660,21 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
          var num_comp_op6 = null;
 
         try {
-            // iQuery.g:144:5: ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' )
+            // iQuery.g:136:5: ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' )
             var alt8=5;
             alt8 = this.dfa8.predict(this.input);
             switch (alt8) {
                 case 1 :
-                    // iQuery.g:144:7: '[' attr= ELEMENT op v= QUOTED_STRING ']'
-                    this.match(this.input,48,iQueryParser.FOLLOW_48_in_multi_attributes447); 
-                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes451); 
-                    this.pushFollow(iQueryParser.FOLLOW_op_in_multi_attributes453);
+                    // iQuery.g:136:7: '[' attr= ELEMENT op v= QUOTED_STRING ']'
+                    this.match(this.input,42,iQueryParser.FOLLOW_42_in_multi_attributes444); 
+                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes448); 
+                    this.pushFollow(iQueryParser.FOLLOW_op_in_multi_attributes450);
                     op3=this.op();
 
                     this.state._fsp--;
 
-                    v=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_multi_attributes457); 
-                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_multi_attributes459); 
+                    v=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_multi_attributes454); 
+                    this.match(this.input,43,iQueryParser.FOLLOW_43_in_multi_attributes456); 
 
                                 debug("Matching \"[" + (attr?attr.getText():null) + (op3?this.input.toString(op3.start,op3.stop):null) + (v?v.getText():null) + "]\", with candidates:");
                     			debug(candidates);
@@ -714,17 +718,17 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:184:7: '[' ':' attr= ELEMENT op v= QUOTED_STRING ']'
-                    this.match(this.input,48,iQueryParser.FOLLOW_48_in_multi_attributes477); 
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_multi_attributes479); 
-                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes483); 
-                    this.pushFollow(iQueryParser.FOLLOW_op_in_multi_attributes485);
+                    // iQuery.g:176:7: '[' ':' attr= ELEMENT op v= QUOTED_STRING ']'
+                    this.match(this.input,42,iQueryParser.FOLLOW_42_in_multi_attributes474); 
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_multi_attributes476); 
+                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes480); 
+                    this.pushFollow(iQueryParser.FOLLOW_op_in_multi_attributes482);
                     op4=this.op();
 
                     this.state._fsp--;
 
-                    v=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_multi_attributes489); 
-                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_multi_attributes491); 
+                    v=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_multi_attributes486); 
+                    this.match(this.input,43,iQueryParser.FOLLOW_43_in_multi_attributes488); 
 
                                 debug("Matching \"[" + (attr?attr.getText():null) + (op4?this.input.toString(op4.start,op4.stop):null) + (v?v.getText():null) + "]\", with candidates:");
                     			debug(candidates);
@@ -764,10 +768,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 3 :
-                    // iQuery.g:220:7: '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']'
-                    this.match(this.input,48,iQueryParser.FOLLOW_48_in_multi_attributes509); 
-                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes513); 
-                    this.pushFollow(iQueryParser.FOLLOW_num_comp_op_in_multi_attributes515);
+                    // iQuery.g:212:7: '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']'
+                    this.match(this.input,42,iQueryParser.FOLLOW_42_in_multi_attributes506); 
+                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes510); 
+                    this.pushFollow(iQueryParser.FOLLOW_num_comp_op_in_multi_attributes512);
                     num_comp_op5=this.num_comp_op();
 
                     this.state._fsp--;
@@ -782,7 +786,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
                         throw mse;
                     }
 
-                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_multi_attributes527); 
+                    this.match(this.input,43,iQueryParser.FOLLOW_43_in_multi_attributes524); 
 
                                 debug("Matching \"[" + (attr?attr.getText():null) + (num_comp_op5?this.input.toString(num_comp_op5.start,num_comp_op5.stop):null) + (v?v.getText():null) + "]\", with candidates:");
                     			debug(candidates);
@@ -823,11 +827,11 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 4 :
-                    // iQuery.g:257:7: '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']'
-                    this.match(this.input,48,iQueryParser.FOLLOW_48_in_multi_attributes545); 
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_multi_attributes547); 
-                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes551); 
-                    this.pushFollow(iQueryParser.FOLLOW_num_comp_op_in_multi_attributes553);
+                    // iQuery.g:249:7: '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']'
+                    this.match(this.input,42,iQueryParser.FOLLOW_42_in_multi_attributes542); 
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_multi_attributes544); 
+                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes548); 
+                    this.pushFollow(iQueryParser.FOLLOW_num_comp_op_in_multi_attributes550);
                     num_comp_op6=this.num_comp_op();
 
                     this.state._fsp--;
@@ -842,7 +846,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
                         throw mse;
                     }
 
-                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_multi_attributes565); 
+                    this.match(this.input,43,iQueryParser.FOLLOW_43_in_multi_attributes562); 
 
                                 debug("Matching \"[" + (attr?attr.getText():null) + (num_comp_op6?this.input.toString(num_comp_op6.start,num_comp_op6.stop):null) + (v?v.getText():null) + "]\", with candidates:");
                     			debug(candidates);
@@ -883,10 +887,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 5 :
-                    // iQuery.g:294:7: '[' attr= ELEMENT ']'
-                    this.match(this.input,48,iQueryParser.FOLLOW_48_in_multi_attributes583); 
-                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes587); 
-                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_multi_attributes589); 
+                    // iQuery.g:286:7: '[' attr= ELEMENT ']'
+                    this.match(this.input,42,iQueryParser.FOLLOW_42_in_multi_attributes580); 
+                    attr=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_multi_attributes584); 
+                    this.match(this.input,43,iQueryParser.FOLLOW_43_in_multi_attributes586); 
 
                                 debug("Matching \"[" + (attr?attr.getText():null) + "]\", with candidates:");
                     			debug(candidates);
@@ -934,16 +938,16 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
         return;
     })(),
 
-    // iQuery.g:315:1: op : ( '=' | '!=' | '$=' | '^=' | '*=' );
+    // iQuery.g:307:1: op : ( '=' | '!=' | '$=' | '^=' | '*=' );
     // $ANTLR start "op"
     op: function() {
         var retval = new iQueryParser.op_return();
         retval.start = this.input.LT(1);
 
         try {
-            // iQuery.g:316:5: ( '=' | '!=' | '$=' | '^=' | '*=' )
+            // iQuery.g:308:5: ( '=' | '!=' | '$=' | '^=' | '*=' )
             // iQuery.g:
-            if ( this.input.LA(1)==47||(this.input.LA(1)>=51 && this.input.LA(1)<=54) ) {
+            if ( this.input.LA(1)==41||(this.input.LA(1)>=45 && this.input.LA(1)<=48) ) {
                 this.input.consume();
                 this.state.errorRecovery=false;
             }
@@ -981,14 +985,14 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
         return;
     })(),
 
-    // iQuery.g:323:1: indexop : ( EQ | GT | LT | NTH_CHILD );
+    // iQuery.g:315:1: indexop : ( EQ | GT | LT | NTH_CHILD );
     // $ANTLR start "indexop"
     indexop: function() {
         var retval = new iQueryParser.indexop_return();
         retval.start = this.input.LT(1);
 
         try {
-            // iQuery.g:324:5: ( EQ | GT | LT | NTH_CHILD )
+            // iQuery.g:316:5: ( EQ | GT | LT | NTH_CHILD )
             // iQuery.g:
             if ( (this.input.LA(1)>=EQ && this.input.LA(1)<=NTH_CHILD) ) {
                 this.input.consume();
@@ -1019,7 +1023,7 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:330:1: selector_expression[candidates] returns [survival] : ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' TEXT | ':' RADIO | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' CHECKBOX | ':' BUTTON | ':' IMAGE | ':' LABEL | ':' PARENT | '#' ELEMENT );
+    // iQuery.g:322:1: selector_expression[candidates] returns [survival] : ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' PARENT | ':' ELEMENT | '#' ELEMENT );
     // $ANTLR start "selector_expression"
     selector_expression: function(candidates) {
         var survival = null;
@@ -1027,18 +1031,19 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
         var vidx = null;
         var text = null;
         var ELEMENT9 = null;
+        var ELEMENT10 = null;
          var vop = null;
          var atom7 = null;
          var selectors8 = null;
 
         try {
-            // iQuery.g:331:5: ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' TEXT | ':' RADIO | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' CHECKBOX | ':' BUTTON | ':' IMAGE | ':' LABEL | ':' PARENT | '#' ELEMENT )
-            var alt9=22;
+            // iQuery.g:323:5: ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' PARENT | ':' ELEMENT | '#' ELEMENT )
+            var alt9=17;
             alt9 = this.dfa9.predict(this.input);
             switch (alt9) {
                 case 1 :
-                    // iQuery.g:331:7: atom[$candidates]
-                    this.pushFollow(iQueryParser.FOLLOW_atom_in_selector_expression713);
+                    // iQuery.g:323:7: atom[$candidates]
+                    this.pushFollow(iQueryParser.FOLLOW_atom_in_selector_expression710);
                     atom7=this.atom(candidates);
 
                     this.state._fsp--;
@@ -1050,16 +1055,16 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:335:7: ':' vop= indexop '(' vidx= FLOAT ')'
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression732); 
-                    this.pushFollow(iQueryParser.FOLLOW_indexop_in_selector_expression736);
+                    // iQuery.g:327:7: ':' vop= indexop '(' vidx= FLOAT ')'
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression729); 
+                    this.pushFollow(iQueryParser.FOLLOW_indexop_in_selector_expression733);
                     vop=this.indexop();
 
                     this.state._fsp--;
 
-                    this.match(this.input,55,iQueryParser.FOLLOW_55_in_selector_expression738); 
-                    vidx=this.match(this.input,FLOAT,iQueryParser.FOLLOW_FLOAT_in_selector_expression742); 
-                    this.match(this.input,56,iQueryParser.FOLLOW_56_in_selector_expression744); 
+                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_selector_expression735); 
+                    vidx=this.match(this.input,FLOAT,iQueryParser.FOLLOW_FLOAT_in_selector_expression739); 
+                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression741); 
 
                                 // this is ugly, because indexop is a token.
                                 var optext = (vop?this.input.toString(vop.start,vop.stop):null);
@@ -1100,16 +1105,16 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 3 :
-                    // iQuery.g:372:7: ':' NOT '(' selectors[$candidates] ')'
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression762); 
-                    this.match(this.input,NOT,iQueryParser.FOLLOW_NOT_in_selector_expression764); 
-                    this.match(this.input,55,iQueryParser.FOLLOW_55_in_selector_expression766); 
-                    this.pushFollow(iQueryParser.FOLLOW_selectors_in_selector_expression768);
+                    // iQuery.g:364:7: ':' NOT '(' selectors[$candidates] ')'
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression759); 
+                    this.match(this.input,NOT,iQueryParser.FOLLOW_NOT_in_selector_expression761); 
+                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_selector_expression763); 
+                    this.pushFollow(iQueryParser.FOLLOW_selectors_in_selector_expression765);
                     selectors8=this.selectors(candidates);
 
                     this.state._fsp--;
 
-                    this.match(this.input,56,iQueryParser.FOLLOW_56_in_selector_expression771); 
+                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression768); 
 
                                 debug("Matching \":not\", with candidates:");
                     			debug(candidates);
@@ -1121,12 +1126,12 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 4 :
-                    // iQuery.g:397:7: ':' CONTAINS '(' text= QUOTED_STRING ')'
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression792); 
-                    this.match(this.input,CONTAINS,iQueryParser.FOLLOW_CONTAINS_in_selector_expression794); 
-                    this.match(this.input,55,iQueryParser.FOLLOW_55_in_selector_expression796); 
-                    text=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_selector_expression800); 
-                    this.match(this.input,56,iQueryParser.FOLLOW_56_in_selector_expression802); 
+                    // iQuery.g:372:7: ':' CONTAINS '(' text= QUOTED_STRING ')'
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression786); 
+                    this.match(this.input,CONTAINS,iQueryParser.FOLLOW_CONTAINS_in_selector_expression788); 
+                    this.match(this.input,49,iQueryParser.FOLLOW_49_in_selector_expression790); 
+                    text=this.match(this.input,QUOTED_STRING,iQueryParser.FOLLOW_QUOTED_STRING_in_selector_expression794); 
+                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression796); 
 
                                 debug("Matching \":contains\", with candidates:");
                     			debug(candidates);
@@ -1158,9 +1163,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 5 :
-                    // iQuery.g:425:7: ':' LAST_CHILD
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression814); 
-                    this.match(this.input,LAST_CHILD,iQueryParser.FOLLOW_LAST_CHILD_in_selector_expression816); 
+                    // iQuery.g:400:7: ':' LAST_CHILD
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression808); 
+                    this.match(this.input,LAST_CHILD,iQueryParser.FOLLOW_LAST_CHILD_in_selector_expression810); 
 
                                 debug("Matching \":last_child\", with candidates:");
                     			debug(candidates);
@@ -1183,9 +1188,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 6 :
-                    // iQuery.g:444:7: ':' FIRST_CHILD
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression834); 
-                    this.match(this.input,FIRST_CHILD,iQueryParser.FOLLOW_FIRST_CHILD_in_selector_expression836); 
+                    // iQuery.g:419:7: ':' FIRST_CHILD
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression828); 
+                    this.match(this.input,FIRST_CHILD,iQueryParser.FOLLOW_FIRST_CHILD_in_selector_expression830); 
 
                                 debug("Matching \":first_child\", with candidates:");
                     			debug(candidates);
@@ -1208,9 +1213,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 7 :
-                    // iQuery.g:463:7: ':' FIRST
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression854); 
-                    this.match(this.input,FIRST,iQueryParser.FOLLOW_FIRST_in_selector_expression856); 
+                    // iQuery.g:438:7: ':' FIRST
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression848); 
+                    this.match(this.input,FIRST,iQueryParser.FOLLOW_FIRST_in_selector_expression850); 
 
                                 debug("Matching \":first\", with candidates:");
                     			debug(candidates);
@@ -1227,9 +1232,9 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 8 :
-                    // iQuery.g:476:7: ':' LAST
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression874); 
-                    this.match(this.input,LAST,iQueryParser.FOLLOW_LAST_in_selector_expression876); 
+                    // iQuery.g:451:7: ':' LAST
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression868); 
+                    this.match(this.input,LAST,iQueryParser.FOLLOW_LAST_in_selector_expression870); 
 
                                 debug("Matching \":last\", with candidates:");
                     			debug(candidates);
@@ -1246,47 +1251,16 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 9 :
-                    // iQuery.g:489:7: ':' TEXT
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression894); 
-                    this.match(this.input,TEXT,iQueryParser.FOLLOW_TEXT_in_selector_expression896); 
-
-                                debug("Matching \":text\", with candidates:");
-                    			debug(candidates);
-                                survival = match(candidates, new Array("UIATextField", "UIATextView", "UIASecureTextField"));
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 10 :
-                    // iQuery.g:497:7: ':' RADIO
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression914); 
-                    this.match(this.input,RADIO,iQueryParser.FOLLOW_RADIO_in_selector_expression916); 
-
-                                debug("Matching \":radio\", with candidates:");
-                    			debug(candidates);
-                                survival = match(candidates, new Array("UIASwitch"));
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 11 :
-                    // iQuery.g:505:7: ':' EMPTY
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression934); 
-                    this.match(this.input,EMPTY,iQueryParser.FOLLOW_EMPTY_in_selector_expression936); 
+                    // iQuery.g:464:7: ':' EMPTY
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression888); 
+                    this.match(this.input,EMPTY,iQueryParser.FOLLOW_EMPTY_in_selector_expression890); 
 
                                 debug("Matching \":empty\", with candidates:");
                     			debug(candidates);
                     			survival = [];
                     			for ( var i = 0; i < candidates.length; ++i ) {
                                     var elements = candidates[i].elements().toArray();
-                                    /*
-                                    debug("elements[0]: " + elements[0] + ", typeof(elements[0]): " + typeof(elements[0]));               
-                                    debug(elements[0] == null);
-                                    */
+
                     				if (elements.length == 0 || type(elements[0]) == "UIAApplication" ) {
                     					survival.push(candidates[i]);
                     				}
@@ -1297,10 +1271,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 12 :
-                    // iQuery.g:523:7: ':' VISIBLE
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression948); 
-                    this.match(this.input,VISIBLE,iQueryParser.FOLLOW_VISIBLE_in_selector_expression950); 
+                case 10 :
+                    // iQuery.g:479:7: ':' VISIBLE
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression902); 
+                    this.match(this.input,VISIBLE,iQueryParser.FOLLOW_VISIBLE_in_selector_expression904); 
 
                                 debug("Matching \":visible\", with candidates:");
                     			debug(candidates);
@@ -1311,10 +1285,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 13 :
-                    // iQuery.g:531:7: ':' HIDDEN
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression962); 
-                    this.match(this.input,HIDDEN,iQueryParser.FOLLOW_HIDDEN_in_selector_expression964); 
+                case 11 :
+                    // iQuery.g:487:7: ':' HIDDEN
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression916); 
+                    this.match(this.input,HIDDEN,iQueryParser.FOLLOW_HIDDEN_in_selector_expression918); 
 
                                 debug("Matching \":hidden\", with candidates:");
                     			debug(candidates);
@@ -1325,10 +1299,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 14 :
-                    // iQuery.g:539:7: ':' FOCUS
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression976); 
-                    this.match(this.input,FOCUS,iQueryParser.FOLLOW_FOCUS_in_selector_expression978); 
+                case 12 :
+                    // iQuery.g:495:7: ':' FOCUS
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression930); 
+                    this.match(this.input,FOCUS,iQueryParser.FOLLOW_FOCUS_in_selector_expression932); 
 
                                 debug("Matching \":focus\", with candidates:");
                     			debug(candidates);
@@ -1339,10 +1313,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 15 :
-                    // iQuery.g:547:4: ':' ENABLED
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression987); 
-                    this.match(this.input,ENABLED,iQueryParser.FOLLOW_ENABLED_in_selector_expression989); 
+                case 13 :
+                    // iQuery.g:503:4: ':' ENABLED
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression941); 
+                    this.match(this.input,ENABLED,iQueryParser.FOLLOW_ENABLED_in_selector_expression943); 
 
                                 debug("Matching \":enabled\", with candidates:");
                     			debug(candidates);
@@ -1353,10 +1327,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 16 :
-                    // iQuery.g:555:4: ':' DISABLED
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression998); 
-                    this.match(this.input,DISABLED,iQueryParser.FOLLOW_DISABLED_in_selector_expression1000); 
+                case 14 :
+                    // iQuery.g:511:4: ':' DISABLED
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression952); 
+                    this.match(this.input,DISABLED,iQueryParser.FOLLOW_DISABLED_in_selector_expression954); 
 
                                 debug("Matching \":disabled\", with candidates:");
                     			debug(candidates);
@@ -1367,73 +1341,10 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 17 :
-                    // iQuery.g:563:7: ':' CHECKBOX
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression1012); 
-                    this.match(this.input,CHECKBOX,iQueryParser.FOLLOW_CHECKBOX_in_selector_expression1014); 
-
-                                debug("Matching \":checkbox\", with candidates:");
-                    			debug(candidates);
-                                survival = match(candidates, "UIASwitch");
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 18 :
-                    // iQuery.g:571:7: ':' BUTTON
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression1032); 
-                    this.match(this.input,BUTTON,iQueryParser.FOLLOW_BUTTON_in_selector_expression1034); 
-
-                                debug("Matching \":button\", with candidates:");
-                    			debug(candidates);
-                                survival = match(candidates, "UIAButton");
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 19 :
-                    // iQuery.g:579:7: ':' IMAGE
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression1052); 
-                    this.match(this.input,IMAGE,iQueryParser.FOLLOW_IMAGE_in_selector_expression1054); 
-
-                                debug("Matching \":image\", with candidates:");
-                    			debug(candidates);
-                                // ios doesn't have a image control
-                                // An image gallery is really nothing but a tableview in which each row displays 
-                                // several images side by side. By using a custom cell without borders, you create 
-                                // the illusion of a grid of images
-                                //
-                                // from: http://stackoverflow.com/questions/4374569/ipad-control-for-creating-an-image-gallery
-                                // survival = [];
-                                survival = match(candidates, "UIAImage");
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 20 :
-                    // iQuery.g:594:7: ':' LABEL
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression1072); 
-                    this.match(this.input,LABEL,iQueryParser.FOLLOW_LABEL_in_selector_expression1074); 
-
-                                debug("Matching \":label\", with candidates:");
-                    			debug(candidates);
-                                survival = match(candidates, new Array("UIAStaticText", "UIAStatusBar", "UIALink"));
-                                debug("Matching  result:");
-                    			debug(survival);
-                            
-
-
-                    break;
-                case 21 :
-                    // iQuery.g:602:7: ':' PARENT
-                    this.match(this.input,50,iQueryParser.FOLLOW_50_in_selector_expression1092); 
-                    this.match(this.input,PARENT,iQueryParser.FOLLOW_PARENT_in_selector_expression1094); 
+                case 15 :
+                    // iQuery.g:519:7: ':' PARENT
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression966); 
+                    this.match(this.input,PARENT,iQueryParser.FOLLOW_PARENT_in_selector_expression968); 
 
                                 debug("Matching \":parent\", with candidates:");
                     			debug(candidates);
@@ -1450,26 +1361,28 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
 
                     break;
-                case 22 :
-                    // iQuery.g:616:7: '#' ELEMENT
-                    this.match(this.input,57,iQueryParser.FOLLOW_57_in_selector_expression1112); 
-                    ELEMENT9=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_selector_expression1114); 
+                case 16 :
+                    // iQuery.g:590:7: ':' ELEMENT
+                    this.match(this.input,44,iQueryParser.FOLLOW_44_in_selector_expression988); 
+                    ELEMENT9=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_selector_expression990); 
 
-                                debug("Matching \"#" + (ELEMENT9?ELEMENT9.getText():null) + "\", with candidates:");
+                                debug("Match \"" + (ELEMENT9?ELEMENT9.getText():null) + "\"");
+                                survival = this.filterPseudo(candidates, (ELEMENT9?ELEMENT9.getText():null)); 
+                            
+
+
+                    break;
+                case 17 :
+                    // iQuery.g:595:7: '#' ELEMENT
+                    this.match(this.input,51,iQueryParser.FOLLOW_51_in_selector_expression1008); 
+                    ELEMENT10=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_selector_expression1010); 
+
+                                debug("Matching \"#" + (ELEMENT10?ELEMENT10.getText():null) + "\", with candidates:");
                                 debug(candidates);
 
                                 survival = descendant(candidates, 1024, function(c) {
-                                        return c.name != undefined && c.name() == (ELEMENT9?ELEMENT9.getText():null);
+                                        return c.name != undefined && c.name() == (ELEMENT10?ELEMENT10.getText():null);
                                     });
-                                /*
-                                survival = [];
-                                for ( var i = 0;i < candidates.length; ++i ) { 
-                                    var candidate = candidates[i];
-                                    if ( candidate.name != undefined && candidate.name == (ELEMENT9?ELEMENT9.getText():null) ) {
-                                        survival.push(candidate);
-                                    }
-                                }
-                                */
 
                                 debug("Matching result:");
                                 debug(survival);
@@ -1494,15 +1407,15 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
     },
 
 
-    // iQuery.g:639:1: atom[candidates] returns [survival] : ( ASTERISK | ELEMENT );
+    // iQuery.g:609:1: atom[candidates] returns [survival] : ( ASTERISK | ELEMENT );
     // $ANTLR start "atom"
     atom: function(candidates) {
         var survival = null;
 
-        var ELEMENT10 = null;
+        var ELEMENT11 = null;
 
         try {
-            // iQuery.g:640:5: ( ASTERISK | ELEMENT )
+            // iQuery.g:610:5: ( ASTERISK | ELEMENT )
             var alt10=2;
             var LA10_0 = this.input.LA(1);
 
@@ -1520,8 +1433,8 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
             }
             switch (alt10) {
                 case 1 :
-                    // iQuery.g:640:7: ASTERISK
-                    this.match(this.input,ASTERISK,iQueryParser.FOLLOW_ASTERISK_in_atom1148); 
+                    // iQuery.g:610:7: ASTERISK
+                    this.match(this.input,ASTERISK,iQueryParser.FOLLOW_ASTERISK_in_atom1044); 
 
                                 debug("Matching \"*\"");
                     			debug(candidates);
@@ -1533,12 +1446,12 @@ org.antlr.lang.augmentObject(iQueryParser.prototype, {
 
                     break;
                 case 2 :
-                    // iQuery.g:648:7: ELEMENT
-                    ELEMENT10=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_atom1166); 
+                    // iQuery.g:618:7: ELEMENT
+                    ELEMENT11=this.match(this.input,ELEMENT,iQueryParser.FOLLOW_ELEMENT_in_atom1062); 
 
-                                debug("Matching \"" + (ELEMENT10?ELEMENT10.getText():null) + "\", with candidates:");
+                                debug("Matching \"" + (ELEMENT11?ELEMENT11.getText():null) + "\", with candidates:");
                     			debug(candidates);
-                                survival = match(candidates, (ELEMENT10?ELEMENT10.getText():null));
+                                survival = match(candidates, (ELEMENT11?ELEMENT11.getText():null));
                                 debug("Matching  result:");
                     			debug(survival);
                             
@@ -1574,11 +1487,11 @@ org.antlr.lang.augmentObject(iQueryParser, {
     DFA8_eofS:
         "\u000c\uffff",
     DFA8_minS:
-        "\u0001\u0030\u0001\u0007\u0001\u0029\u0001\u0007\u0001\uffff\u0001"+
-    "\u0006\u0002\uffff\u0001\u0029\u0001\u0006\u0002\uffff",
+        "\u0001\u002a\u0001\u0007\u0001\u0023\u0001\u0007\u0001\uffff\u0001"+
+    "\u0006\u0002\uffff\u0001\u0023\u0001\u0006\u0002\uffff",
     DFA8_maxS:
-        "\u0001\u0030\u0001\u0032\u0001\u0036\u0001\u0007\u0001\uffff\u0001"+
-    "\u0009\u0002\uffff\u0001\u0036\u0001\u0009\u0002\uffff",
+        "\u0001\u002a\u0001\u002c\u0001\u0030\u0001\u0007\u0001\uffff\u0001"+
+    "\u0009\u0002\uffff\u0001\u0030\u0001\u0009\u0002\uffff",
     DFA8_acceptS:
         "\u0004\uffff\u0001\u0005\u0001\uffff\u0001\u0001\u0001\u0003\u0002"+
     "\uffff\u0001\u0002\u0001\u0004",
@@ -1586,7 +1499,7 @@ org.antlr.lang.augmentObject(iQueryParser, {
         "\u000c\uffff}>",
     DFA8_transitionS: [
             "\u0001\u0001",
-            "\u0001\u0002\u002a\uffff\u0001\u0003",
+            "\u0001\u0002\u0024\uffff\u0001\u0003",
             "\u0001\u0007\u0002\uffff\u0003\u0007\u0001\u0005\u0001\uffff"+
             "\u0001\u0004\u0001\uffff\u0004\u0006",
             "\u0001\u0008",
@@ -1640,40 +1553,34 @@ iQueryParser.DFA8 = function(recognizer) {
 
 org.antlr.lang.extend(iQueryParser.DFA8, org.antlr.runtime.DFA, {
     getDescription: function() {
-        return "143:1: multi_attributes[candidates] returns [survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );";
+        return "135:1: multi_attributes[candidates] returns [survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );";
     },
     dummy: null
 });
 org.antlr.lang.augmentObject(iQueryParser, {
     DFA9_eotS:
-        "\u0018\uffff",
+        "\u0013\uffff",
     DFA9_eofS:
-        "\u0018\uffff",
+        "\u0013\uffff",
     DFA9_minS:
-        "\u0001\u0007\u0001\uffff\u0001\u000a\u0015\uffff",
+        "\u0001\u0007\u0001\uffff\u0001\u0007\u0010\uffff",
     DFA9_maxS:
-        "\u0001\u0039\u0001\uffff\u0001\u0020\u0015\uffff",
+        "\u0001\u0033\u0001\uffff\u0001\u001a\u0010\uffff",
     DFA9_acceptS:
-        "\u0001\uffff\u0001\u0001\u0001\uffff\u0001\u0016\u0001\u0003\u0001"+
+        "\u0001\uffff\u0001\u0001\u0001\uffff\u0001\u0011\u0001\u0003\u0001"+
     "\u0004\u0001\u0005\u0001\u0006\u0001\u0007\u0001\u0008\u0001\u0009\u0001"+
     "\u000a\u0001\u000b\u0001\u000c\u0001\u000d\u0001\u000e\u0001\u000f\u0001"+
-    "\u0010\u0001\u0011\u0001\u0012\u0001\u0013\u0001\u0014\u0001\u0015\u0001"+
-    "\u0002",
+    "\u0010\u0001\u0002",
     DFA9_specialS:
-        "\u0018\uffff}>",
+        "\u0013\uffff}>",
     DFA9_transitionS: [
-            "\u0001\u0001\u0019\uffff\u0001\u0001\u0010\uffff\u0001\u0002"+
+            "\u0001\u0001\u0013\uffff\u0001\u0001\u0010\uffff\u0001\u0002"+
             "\u0006\uffff\u0001\u0003",
             "",
-            "\u0004\u0017\u0001\u0004\u0001\u0005\u0001\u0006\u0001\u0007"+
-            "\u0001\u0008\u0001\u0009\u0001\u000a\u0001\u000b\u0001\u000c"+
-            "\u0001\u000d\u0001\u000e\u0001\u000f\u0001\u0010\u0001\u0011"+
-            "\u0001\u0012\u0001\u0013\u0001\u0014\u0001\u0015\u0001\u0016",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\u0001\u0011\u0002\uffff\u0004\u0012\u0001\u0004\u0001\u0005"+
+            "\u0001\u0006\u0001\u0007\u0001\u0008\u0001\u0009\u0001\u000a"+
+            "\u0001\u000b\u0001\u000c\u0001\u000d\u0001\u000e\u0001\u000f"+
+            "\u0001\u0010",
             "",
             "",
             "",
@@ -1731,7 +1638,7 @@ iQueryParser.DFA9 = function(recognizer) {
 
 org.antlr.lang.extend(iQueryParser.DFA9, org.antlr.runtime.DFA, {
     getDescription: function() {
-        return "330:1: selector_expression[candidates] returns [survival] : ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' TEXT | ':' RADIO | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' CHECKBOX | ':' BUTTON | ':' IMAGE | ':' LABEL | ':' PARENT | '#' ELEMENT );";
+        return "322:1: selector_expression[candidates] returns [survival] : ( atom[$candidates] | ':' vop= indexop '(' vidx= FLOAT ')' | ':' NOT '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' VISIBLE | ':' HIDDEN | ':' FOCUS | ':' ENABLED | ':' DISABLED | ':' PARENT | ':' ELEMENT | '#' ELEMENT );";
     },
     dummy: null
 });
@@ -1739,110 +1646,100 @@ org.antlr.lang.extend(iQueryParser.DFA9, org.antlr.runtime.DFA, {
 
 // public class variables
 org.antlr.lang.augmentObject(iQueryParser, {
-    tokenNames: ["<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "DESCENDANT", "FLOAT", "ELEMENT", "QUOTED_STRING", "PERCENTAGE", "EQ", "GT", "LT", "NTH_CHILD", "NOT", "CONTAINS", "LAST_CHILD", "FIRST_CHILD", "FIRST", "LAST", "TEXT", "RADIO", "EMPTY", "VISIBLE", "HIDDEN", "FOCUS", "ENABLED", "DISABLED", "CHECKBOX", "BUTTON", "IMAGE", "LABEL", "PARENT", "ASTERISK", "HAS", "CHECKED", "PREV", "NEXT", "SIBLINGS", "DIGIT", "WS", "'>'", "'+'", "'~'", "'<'", "'>='", "'<='", "'='", "'['", "']'", "':'", "'!='", "'$='", "'^='", "'*='", "'('", "')'", "'#'"],
+    tokenNames: ["<invalid>", "<EOR>", "<DOWN>", "<UP>", "NEWLINE", "DESCENDANT", "FLOAT", "ELEMENT", "QUOTED_STRING", "PERCENTAGE", "EQ", "GT", "LT", "NTH_CHILD", "NOT", "CONTAINS", "LAST_CHILD", "FIRST_CHILD", "FIRST", "LAST", "EMPTY", "VISIBLE", "HIDDEN", "FOCUS", "ENABLED", "DISABLED", "PARENT", "ASTERISK", "HAS", "CHECKED", "PREV", "NEXT", "SIBLINGS", "DIGIT", "WS", "'>'", "'+'", "'~'", "'<'", "'>='", "'<='", "'='", "'['", "']'", "':'", "'!='", "'$='", "'^='", "'*='", "'('", "')'", "'#'"],
     FOLLOW_selectors_in_prog54: new org.antlr.runtime.BitSet([0x00000010, 0x00000000]),
     FOLLOW_NEWLINE_in_prog57: new org.antlr.runtime.BitSet([0x00000010, 0x00000000]),
     FOLLOW_EOF_in_prog60: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
     FOLLOW_NEWLINE_in_prog78: new org.antlr.runtime.BitSet([0x00000010, 0x00000000]),
     FOLLOW_EOF_in_prog81: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_multi_selectors_in_selectors107: new org.antlr.runtime.BitSet([0x000000A2, 0x02050202]),
-    FOLLOW_multi_selectors_in_selectors113: new org.antlr.runtime.BitSet([0x000000A2, 0x02050202]),
-    FOLLOW_selector_in_multi_selectors160: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_41_in_multi_selectors179: new org.antlr.runtime.BitSet([0x00000080, 0x02050002]),
-    FOLLOW_selector_in_multi_selectors183: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_DESCENDANT_in_multi_selectors202: new org.antlr.runtime.BitSet([0x00000080, 0x02050002]),
-    FOLLOW_selector_in_multi_selectors206: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_41_in_multi_selectors225: new org.antlr.runtime.BitSet([0x00000040, 0x00000000]),
-    FOLLOW_FLOAT_in_multi_selectors229: new org.antlr.runtime.BitSet([0x00000080, 0x02050002]),
-    FOLLOW_selector_in_multi_selectors233: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_selector_expression_in_selector270: new org.antlr.runtime.BitSet([0x00000002, 0x00000C00]),
-    FOLLOW_42_in_selector297: new org.antlr.runtime.BitSet([0x00000080, 0x02040002]),
-    FOLLOW_selector_expression_in_selector301: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_43_in_selector328: new org.antlr.runtime.BitSet([0x00000080, 0x02040002]),
-    FOLLOW_selector_expression_in_selector332: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_multi_attributes_in_selector363: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_multi_selectors_in_selectors107: new org.antlr.runtime.BitSet([0x080000A2, 0x00081408]),
+    FOLLOW_multi_selectors_in_selectors113: new org.antlr.runtime.BitSet([0x080000A2, 0x00081408]),
+    FOLLOW_selector_in_multi_selectors157: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_35_in_multi_selectors176: new org.antlr.runtime.BitSet([0x08000080, 0x00081400]),
+    FOLLOW_selector_in_multi_selectors180: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_DESCENDANT_in_multi_selectors199: new org.antlr.runtime.BitSet([0x08000080, 0x00081400]),
+    FOLLOW_selector_in_multi_selectors203: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_35_in_multi_selectors222: new org.antlr.runtime.BitSet([0x00000040, 0x00000000]),
+    FOLLOW_FLOAT_in_multi_selectors226: new org.antlr.runtime.BitSet([0x08000080, 0x00081400]),
+    FOLLOW_selector_in_multi_selectors230: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_selector_expression_in_selector267: new org.antlr.runtime.BitSet([0x00000002, 0x00000030]),
+    FOLLOW_36_in_selector294: new org.antlr.runtime.BitSet([0x08000080, 0x00081000]),
+    FOLLOW_selector_expression_in_selector298: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_37_in_selector325: new org.antlr.runtime.BitSet([0x08000080, 0x00081000]),
+    FOLLOW_selector_expression_in_selector329: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_multi_attributes_in_selector360: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
     FOLLOW_set_in_num_comp_op0: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_48_in_multi_attributes447: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_multi_attributes451: new org.antlr.runtime.BitSet([0x00000000, 0x00788000]),
-    FOLLOW_op_in_multi_attributes453: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
-    FOLLOW_QUOTED_STRING_in_multi_attributes457: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
-    FOLLOW_49_in_multi_attributes459: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_48_in_multi_attributes477: new org.antlr.runtime.BitSet([0x00000000, 0x00040000]),
-    FOLLOW_50_in_multi_attributes479: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_multi_attributes483: new org.antlr.runtime.BitSet([0x00000000, 0x00788000]),
-    FOLLOW_op_in_multi_attributes485: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
-    FOLLOW_QUOTED_STRING_in_multi_attributes489: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
-    FOLLOW_49_in_multi_attributes491: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_48_in_multi_attributes509: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_multi_attributes513: new org.antlr.runtime.BitSet([0x00000000, 0x0000F200]),
-    FOLLOW_num_comp_op_in_multi_attributes515: new org.antlr.runtime.BitSet([0x00000240, 0x00000000]),
-    FOLLOW_set_in_multi_attributes519: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
-    FOLLOW_49_in_multi_attributes527: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_48_in_multi_attributes545: new org.antlr.runtime.BitSet([0x00000000, 0x00040000]),
-    FOLLOW_50_in_multi_attributes547: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_multi_attributes551: new org.antlr.runtime.BitSet([0x00000000, 0x0000F200]),
-    FOLLOW_num_comp_op_in_multi_attributes553: new org.antlr.runtime.BitSet([0x00000240, 0x00000000]),
-    FOLLOW_set_in_multi_attributes557: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
-    FOLLOW_49_in_multi_attributes565: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_48_in_multi_attributes583: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_multi_attributes587: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
-    FOLLOW_49_in_multi_attributes589: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_42_in_multi_attributes444: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_multi_attributes448: new org.antlr.runtime.BitSet([0x00000000, 0x0001E200]),
+    FOLLOW_op_in_multi_attributes450: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
+    FOLLOW_QUOTED_STRING_in_multi_attributes454: new org.antlr.runtime.BitSet([0x00000000, 0x00000800]),
+    FOLLOW_43_in_multi_attributes456: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_42_in_multi_attributes474: new org.antlr.runtime.BitSet([0x00000000, 0x00001000]),
+    FOLLOW_44_in_multi_attributes476: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_multi_attributes480: new org.antlr.runtime.BitSet([0x00000000, 0x0001E200]),
+    FOLLOW_op_in_multi_attributes482: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
+    FOLLOW_QUOTED_STRING_in_multi_attributes486: new org.antlr.runtime.BitSet([0x00000000, 0x00000800]),
+    FOLLOW_43_in_multi_attributes488: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_42_in_multi_attributes506: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_multi_attributes510: new org.antlr.runtime.BitSet([0x00000000, 0x000003C8]),
+    FOLLOW_num_comp_op_in_multi_attributes512: new org.antlr.runtime.BitSet([0x00000240, 0x00000000]),
+    FOLLOW_set_in_multi_attributes516: new org.antlr.runtime.BitSet([0x00000000, 0x00000800]),
+    FOLLOW_43_in_multi_attributes524: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_42_in_multi_attributes542: new org.antlr.runtime.BitSet([0x00000000, 0x00001000]),
+    FOLLOW_44_in_multi_attributes544: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_multi_attributes548: new org.antlr.runtime.BitSet([0x00000000, 0x000003C8]),
+    FOLLOW_num_comp_op_in_multi_attributes550: new org.antlr.runtime.BitSet([0x00000240, 0x00000000]),
+    FOLLOW_set_in_multi_attributes554: new org.antlr.runtime.BitSet([0x00000000, 0x00000800]),
+    FOLLOW_43_in_multi_attributes562: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_42_in_multi_attributes580: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_multi_attributes584: new org.antlr.runtime.BitSet([0x00000000, 0x00000800]),
+    FOLLOW_43_in_multi_attributes586: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
     FOLLOW_set_in_op0: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
     FOLLOW_set_in_indexop0: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_atom_in_selector_expression713: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression732: new org.antlr.runtime.BitSet([0x00003C00, 0x00000000]),
-    FOLLOW_indexop_in_selector_expression736: new org.antlr.runtime.BitSet([0x00000000, 0x00800000]),
-    FOLLOW_55_in_selector_expression738: new org.antlr.runtime.BitSet([0x00000040, 0x00000000]),
-    FOLLOW_FLOAT_in_selector_expression742: new org.antlr.runtime.BitSet([0x00000000, 0x01000000]),
-    FOLLOW_56_in_selector_expression744: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression762: new org.antlr.runtime.BitSet([0x00004000, 0x00000000]),
-    FOLLOW_NOT_in_selector_expression764: new org.antlr.runtime.BitSet([0x00000000, 0x00800000]),
-    FOLLOW_55_in_selector_expression766: new org.antlr.runtime.BitSet([0x000000A0, 0x02050202]),
-    FOLLOW_selectors_in_selector_expression768: new org.antlr.runtime.BitSet([0x00000000, 0x01000000]),
-    FOLLOW_56_in_selector_expression771: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression792: new org.antlr.runtime.BitSet([0x00008000, 0x00000000]),
-    FOLLOW_CONTAINS_in_selector_expression794: new org.antlr.runtime.BitSet([0x00000000, 0x00800000]),
-    FOLLOW_55_in_selector_expression796: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
-    FOLLOW_QUOTED_STRING_in_selector_expression800: new org.antlr.runtime.BitSet([0x00000000, 0x01000000]),
-    FOLLOW_56_in_selector_expression802: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression814: new org.antlr.runtime.BitSet([0x00010000, 0x00000000]),
-    FOLLOW_LAST_CHILD_in_selector_expression816: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression834: new org.antlr.runtime.BitSet([0x00020000, 0x00000000]),
-    FOLLOW_FIRST_CHILD_in_selector_expression836: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression854: new org.antlr.runtime.BitSet([0x00040000, 0x00000000]),
-    FOLLOW_FIRST_in_selector_expression856: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression874: new org.antlr.runtime.BitSet([0x00080000, 0x00000000]),
-    FOLLOW_LAST_in_selector_expression876: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression894: new org.antlr.runtime.BitSet([0x00100000, 0x00000000]),
-    FOLLOW_TEXT_in_selector_expression896: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression914: new org.antlr.runtime.BitSet([0x00200000, 0x00000000]),
-    FOLLOW_RADIO_in_selector_expression916: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression934: new org.antlr.runtime.BitSet([0x00400000, 0x00000000]),
-    FOLLOW_EMPTY_in_selector_expression936: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression948: new org.antlr.runtime.BitSet([0x00800000, 0x00000000]),
-    FOLLOW_VISIBLE_in_selector_expression950: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression962: new org.antlr.runtime.BitSet([0x01000000, 0x00000000]),
-    FOLLOW_HIDDEN_in_selector_expression964: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression976: new org.antlr.runtime.BitSet([0x02000000, 0x00000000]),
-    FOLLOW_FOCUS_in_selector_expression978: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression987: new org.antlr.runtime.BitSet([0x04000000, 0x00000000]),
-    FOLLOW_ENABLED_in_selector_expression989: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression998: new org.antlr.runtime.BitSet([0x08000000, 0x00000000]),
-    FOLLOW_DISABLED_in_selector_expression1000: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression1012: new org.antlr.runtime.BitSet([0x10000000, 0x00000000]),
-    FOLLOW_CHECKBOX_in_selector_expression1014: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression1032: new org.antlr.runtime.BitSet([0x20000000, 0x00000000]),
-    FOLLOW_BUTTON_in_selector_expression1034: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression1052: new org.antlr.runtime.BitSet([0x40000000, 0x00000000]),
-    FOLLOW_IMAGE_in_selector_expression1054: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression1072: new org.antlr.runtime.BitSet([0x80000000, 0x00000000]),
-    FOLLOW_LABEL_in_selector_expression1074: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_50_in_selector_expression1092: new org.antlr.runtime.BitSet([0x00000000, 0x00000001]),
-    FOLLOW_PARENT_in_selector_expression1094: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_57_in_selector_expression1112: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
-    FOLLOW_ELEMENT_in_selector_expression1114: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_ASTERISK_in_atom1148: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
-    FOLLOW_ELEMENT_in_atom1166: new org.antlr.runtime.BitSet([0x00000002, 0x00000000])
+    FOLLOW_atom_in_selector_expression710: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression729: new org.antlr.runtime.BitSet([0x00003C00, 0x00000000]),
+    FOLLOW_indexop_in_selector_expression733: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
+    FOLLOW_49_in_selector_expression735: new org.antlr.runtime.BitSet([0x00000040, 0x00000000]),
+    FOLLOW_FLOAT_in_selector_expression739: new org.antlr.runtime.BitSet([0x00000000, 0x00040000]),
+    FOLLOW_50_in_selector_expression741: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression759: new org.antlr.runtime.BitSet([0x00004000, 0x00000000]),
+    FOLLOW_NOT_in_selector_expression761: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
+    FOLLOW_49_in_selector_expression763: new org.antlr.runtime.BitSet([0x080000A0, 0x00081408]),
+    FOLLOW_selectors_in_selector_expression765: new org.antlr.runtime.BitSet([0x00000000, 0x00040000]),
+    FOLLOW_50_in_selector_expression768: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression786: new org.antlr.runtime.BitSet([0x00008000, 0x00000000]),
+    FOLLOW_CONTAINS_in_selector_expression788: new org.antlr.runtime.BitSet([0x00000000, 0x00020000]),
+    FOLLOW_49_in_selector_expression790: new org.antlr.runtime.BitSet([0x00000100, 0x00000000]),
+    FOLLOW_QUOTED_STRING_in_selector_expression794: new org.antlr.runtime.BitSet([0x00000000, 0x00040000]),
+    FOLLOW_50_in_selector_expression796: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression808: new org.antlr.runtime.BitSet([0x00010000, 0x00000000]),
+    FOLLOW_LAST_CHILD_in_selector_expression810: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression828: new org.antlr.runtime.BitSet([0x00020000, 0x00000000]),
+    FOLLOW_FIRST_CHILD_in_selector_expression830: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression848: new org.antlr.runtime.BitSet([0x00040000, 0x00000000]),
+    FOLLOW_FIRST_in_selector_expression850: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression868: new org.antlr.runtime.BitSet([0x00080000, 0x00000000]),
+    FOLLOW_LAST_in_selector_expression870: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression888: new org.antlr.runtime.BitSet([0x00100000, 0x00000000]),
+    FOLLOW_EMPTY_in_selector_expression890: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression902: new org.antlr.runtime.BitSet([0x00200000, 0x00000000]),
+    FOLLOW_VISIBLE_in_selector_expression904: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression916: new org.antlr.runtime.BitSet([0x00400000, 0x00000000]),
+    FOLLOW_HIDDEN_in_selector_expression918: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression930: new org.antlr.runtime.BitSet([0x00800000, 0x00000000]),
+    FOLLOW_FOCUS_in_selector_expression932: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression941: new org.antlr.runtime.BitSet([0x01000000, 0x00000000]),
+    FOLLOW_ENABLED_in_selector_expression943: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression952: new org.antlr.runtime.BitSet([0x02000000, 0x00000000]),
+    FOLLOW_DISABLED_in_selector_expression954: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression966: new org.antlr.runtime.BitSet([0x04000000, 0x00000000]),
+    FOLLOW_PARENT_in_selector_expression968: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_44_in_selector_expression988: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_selector_expression990: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_51_in_selector_expression1008: new org.antlr.runtime.BitSet([0x00000080, 0x00000000]),
+    FOLLOW_ELEMENT_in_selector_expression1010: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_ASTERISK_in_atom1044: new org.antlr.runtime.BitSet([0x00000002, 0x00000000]),
+    FOLLOW_ELEMENT_in_atom1062: new org.antlr.runtime.BitSet([0x00000002, 0x00000000])
 });
 
 })();

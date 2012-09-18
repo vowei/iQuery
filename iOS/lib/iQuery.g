@@ -36,8 +36,24 @@ this.errors = function() {
 }
 
 this._pseudo_attrs = new Object();
-this.registerPseudoAttrs = function(attr, functor) {
+this.registerPseudoAttr = function(attr, functor) {
     this._pseudo_attrs[attr] = functor;
+}
+
+this._pseudo_classes = new Object();
+this.registerPseudoClass = function(cls, functor) {
+    this._pseudo_classes[cls] = functor;
+}
+
+this.filterPseudo = function(candidates, cls) {
+    return _filterPseudoImpl(candidates, cls, this._pseudo_classes, _errors);
+}
+
+this.setTemplate = function(template) {
+    if ( template != null ) {
+        this._pseudo_attrs = template._pseudo_attrs;
+        this._pseudo_classes = template._pseudo_classes;
+    }
 }
 }
 
@@ -59,30 +75,6 @@ selectors [candidates] returns [survival]
             }
         }
     ;
-
-/*
-selectors [candidates] returns [survival] 
-    : p=multi_selectors[$candidates] r=right_selectors[$candidates, $p.survival]
-        {
-            $survival = $r.survival;
-        }
-    ;
-
-right_selectors[candidates, previousMatches] returns [survival]
-    :  (c=multi_selectors[($c.survival == undefined || $c.survival == null) ? $previousMatches : $c.survival])*
-        {
-            if ( $c.survival != undefined && $c.survival != null ) {
-                $survival = $c.survival;
-            } else {
-                $survival = $previousMatches;
-            }
-        }
-    |  '+' next=selector[next($candidates, $previousMatches)]
-        {
-            $survival = $next.survival;
-        }
-    ;
-*/
 
 multi_selectors [candidates] returns [survival] 
     : selector[$candidates]
@@ -377,23 +369,6 @@ selector_expression [candidates] returns [survival]
             debug("Matching  result:");
 			debug($survival);
         }
-	/* 
-	 * TODO: :has's behavior is not determined yet
-	 *
-	| ':' HAS '(' selectors[$candidates] ')'
-		{
-			var children = $selectors.survival;
-			$survival = [];
-			for ( var i = 0; i < children.length; ++i ) {
-				// for two children have same parent, parent() returns different reference
-				// which cause the same parent pushed to $survival twice!
-			    var p = children[i].parent();
-				if ( $survival.indexOf(p) == -1 ) {
-				     $survival.push(p);
-				}
-			}
-		}
-	*/
     | ':' CONTAINS '(' text=QUOTED_STRING ')'
 		{
             debug("Matching \":contains\", with candidates:");
@@ -486,22 +461,6 @@ selector_expression [candidates] returns [survival]
             debug("Matching  result:");
 			debug($survival);
         }
-    | ':' TEXT
-        {
-            debug("Matching \":text\", with candidates:");
-			debug($candidates);
-            $survival = match($candidates, new Array("UIATextField", "UIATextView", "UIASecureTextField"));
-            debug("Matching  result:");
-			debug($survival);
-        }
-    | ':' RADIO
-        {
-            debug("Matching \":radio\", with candidates:");
-			debug($candidates);
-            $survival = match($candidates, new Array("UIASwitch"));
-            debug("Matching  result:");
-			debug($survival);
-        }
     | ':' EMPTY
 		{
             debug("Matching \":empty\", with candidates:");
@@ -509,10 +468,7 @@ selector_expression [candidates] returns [survival]
 			$survival = [];
 			for ( var i = 0; i < $candidates.length; ++i ) {
                 var elements = $candidates[i].elements().toArray();
-                /*
-                debug("elements[0]: " + elements[0] + ", typeof(elements[0]): " + typeof(elements[0]));               
-                debug(elements[0] == null);
-                */
+
 				if (elements.length == 0 || type(elements[0]) == "UIAApplication" ) {
 					$survival.push($candidates[i]);
 				}
@@ -560,6 +516,21 @@ selector_expression [candidates] returns [survival]
             debug("Matching  result:");
 			debug($survival);
 		}
+    | ':' PARENT
+        {
+            debug("Matching \":parent\", with candidates:");
+			debug($candidates);
+            $survival = [];
+            for ( var i = 0; i < $candidates.length; ++i ) {
+                var p = $candidates[i].parent();
+                if ( p != null && $survival.indexOf(p) < 0 ) {
+                    $survival.push(p);
+                }
+            }
+            debug("Matching result:");
+			debug($survival);
+        }
+/*
     | ':' CHECKBOX
         {
             debug("Matching \":checkbox\", with candidates:");
@@ -599,19 +570,27 @@ selector_expression [candidates] returns [survival]
             debug("Matching  result:");
 			debug($survival);
         }
-    | ':' PARENT
+    | ':' TEXT
         {
-            debug("Matching \":parent\", with candidates:");
+            debug("Matching \":text\", with candidates:");
 			debug($candidates);
-            $survival = [];
-            for ( var i = 0; i < $candidates.length; ++i ) {
-                var p = $candidates[i].parent();
-                if ( p != null && $survival.indexOf(p) < 0 ) {
-                    $survival.push(p);
-                }
-            }
-            debug("Matching result:");
+            $survival = match($candidates, new Array("UIATextField", "UIATextView", "UIASecureTextField"));
+            debug("Matching  result:");
 			debug($survival);
+        }
+    | ':' RADIO
+        {
+            debug("Matching \":radio\", with candidates:");
+			debug($candidates);
+            $survival = match($candidates, new Array("UIASwitch"));
+            debug("Matching  result:");
+			debug($survival);
+        }
+*/
+    | ':' ELEMENT
+        {
+            debug("Match \"" + $ELEMENT.text + "\"");
+            $survival = this.filterPseudo($candidates, $ELEMENT.text); 
         }
     | '#' ELEMENT
         {
@@ -621,15 +600,6 @@ selector_expression [candidates] returns [survival]
             $survival = descendant($candidates, 1024, function(c) {
                     return c.name != undefined && c.name() == $ELEMENT.text;
                 });
-            /*
-            $survival = [];
-            for ( var i = 0;i < $candidates.length; ++i ) { 
-                var candidate = $candidates[i];
-                if ( candidate.name != undefined && candidate.name == $ELEMENT.text ) {
-                    $survival.push(candidate);
-                }
-            }
-            */
 
             debug("Matching result:");
             debug($survival);
@@ -661,10 +631,10 @@ GT: 'gt';
 LT: 'lt';
 NOT: 'not';
 CONTAINS: 'contains';
-TEXT: 'text';
-RADIO: 'radio';
+// TEXT: 'text';
+// RADIO: 'radio';
 EMPTY: 'empty';
-CHECKBOX: 'checkbox';
+// CHECKBOX: 'checkbox';
 FOCUS: 'focus';
 HAS: 'has';
 CHECKED: 'checked';
@@ -677,9 +647,9 @@ DISABLED: 'disabled';
 ENABLED: 'enabled';
 VISIBLE: 'visible';
 HIDDEN: 'hidden';
-BUTTON: 'button';
-LABEL: 'label';
-IMAGE: 'image';
+// BUTTON: 'button';
+// LABEL: 'label';
+// IMAGE: 'image';
 LAST_CHILD: 'last-child';
 FIRST_CHILD: 'first-child';
 FIRST: 'first';
