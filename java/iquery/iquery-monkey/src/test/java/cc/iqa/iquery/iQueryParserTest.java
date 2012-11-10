@@ -519,4 +519,12 @@ public class iQueryParserTest {
 	Assert.assertEquals(1, nodes.size());
 	Assert.assertTrue(nodes.get(0).getName().compareTo("com.android.launcher2.Workspace@44edad48") == 0);
     }
+
+    @Test public void testParseNotAfterAttribute() throws Exception {
+	String path = "testParseNotAfterAttribute.txt";
+	LayoutTree tree = constructTree(path);
+
+	List<ITreeNode> nodes = parseQueryAgainst(tree, ":first > FrameLayout > TabHost :first > LinearLayout :first > FrameLayout :eq(1) > NoSaveStateFrameLayout :eq(1) > LinearLayout :eq(0) > LinearLayout :eq(0) > ScrollView > LinearLayout > LinearLayout :first > RelativeLayout > LinearLayout :first > TextView [mID='id/text1'] :not(TextView [mText=''])");
+	Assert.assertEquals(1, nodes.size());
+    }
 }

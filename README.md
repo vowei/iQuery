@@ -1,5 +1,12 @@
 iQuery is a ui control query library, currently supports for iOS and Android UI automation are implemented.
 
+HOW TO BUILD
+------------
+
+You need set an environment varaible `ANDROID_HOME` in order to do a successful build. For e.g. `$ export ANDROID_HOME=~/android-sdK;mvn package`.
+
+iQuery for monkeyrunner is a plugin project, it requires several jar files in android sdk directory, and which are not available in maven repo. So I point the jar files to android sdk home directory. 
+
 iOS usage
 ---------
 

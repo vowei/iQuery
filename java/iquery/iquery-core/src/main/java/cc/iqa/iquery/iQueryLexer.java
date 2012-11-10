@@ -1,4 +1,4 @@
-// $ANTLR 3.4 cc/iqa/iquery/iQuery.g 2012-09-06 19:14:26
+// $ANTLR 3.4 src/main/java/cc/iqa/iquery/iQuery.g 2012-11-03 04:14:56
 
 package cc.iqa.iquery;
 
@@ -88,15 +88,15 @@ public class iQueryLexer extends Lexer {
     public iQueryLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "cc/iqa/iquery/iQuery.g"; }
+    public String getGrammarFileName() { return "src/main/java/cc/iqa/iquery/iQuery.g"; }
 
     // $ANTLR start "T__30"
     public final void mT__30() throws RecognitionException {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:26:7: ( '!=' )
-            // cc/iqa/iquery/iQuery.g:26:9: '!='
+            // src/main/java/cc/iqa/iquery/iQuery.g:26:7: ( '!=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:26:9: '!='
             {
             match("!="); 
 
@@ -118,8 +118,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:27:7: ( '#' )
-            // cc/iqa/iquery/iQuery.g:27:9: '#'
+            // src/main/java/cc/iqa/iquery/iQuery.g:27:7: ( '#' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:27:9: '#'
             {
             match('#'); 
 
@@ -139,8 +139,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:28:7: ( '$=' )
-            // cc/iqa/iquery/iQuery.g:28:9: '$='
+            // src/main/java/cc/iqa/iquery/iQuery.g:28:7: ( '$=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:28:9: '$='
             {
             match("$="); 
 
@@ -162,8 +162,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:29:7: ( '(' )
-            // cc/iqa/iquery/iQuery.g:29:9: '('
+            // src/main/java/cc/iqa/iquery/iQuery.g:29:7: ( '(' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:29:9: '('
             {
             match('('); 
 
@@ -183,8 +183,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:30:7: ( ')' )
-            // cc/iqa/iquery/iQuery.g:30:9: ')'
+            // src/main/java/cc/iqa/iquery/iQuery.g:30:7: ( ')' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:30:9: ')'
             {
             match(')'); 
 
@@ -204,8 +204,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:31:7: ( '*=' )
-            // cc/iqa/iquery/iQuery.g:31:9: '*='
+            // src/main/java/cc/iqa/iquery/iQuery.g:31:7: ( '*=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:31:9: '*='
             {
             match("*="); 
 
@@ -227,8 +227,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:32:7: ( '+' )
-            // cc/iqa/iquery/iQuery.g:32:9: '+'
+            // src/main/java/cc/iqa/iquery/iQuery.g:32:7: ( '+' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:32:9: '+'
             {
             match('+'); 
 
@@ -248,8 +248,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:33:7: ( ':' )
-            // cc/iqa/iquery/iQuery.g:33:9: ':'
+            // src/main/java/cc/iqa/iquery/iQuery.g:33:7: ( ':' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:33:9: ':'
             {
             match(':'); 
 
@@ -269,8 +269,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:34:7: ( '<' )
-            // cc/iqa/iquery/iQuery.g:34:9: '<'
+            // src/main/java/cc/iqa/iquery/iQuery.g:34:7: ( '<' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:34:9: '<'
             {
             match('<'); 
 
@@ -290,8 +290,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:35:7: ( '<=' )
-            // cc/iqa/iquery/iQuery.g:35:9: '<='
+            // src/main/java/cc/iqa/iquery/iQuery.g:35:7: ( '<=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:35:9: '<='
             {
             match("<="); 
 
@@ -313,8 +313,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:36:7: ( '=' )
-            // cc/iqa/iquery/iQuery.g:36:9: '='
+            // src/main/java/cc/iqa/iquery/iQuery.g:36:7: ( '=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:36:9: '='
             {
             match('='); 
 
@@ -334,8 +334,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:37:7: ( '>' )
-            // cc/iqa/iquery/iQuery.g:37:9: '>'
+            // src/main/java/cc/iqa/iquery/iQuery.g:37:7: ( '>' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:37:9: '>'
             {
             match('>'); 
 
@@ -355,8 +355,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:38:7: ( '>=' )
-            // cc/iqa/iquery/iQuery.g:38:9: '>='
+            // src/main/java/cc/iqa/iquery/iQuery.g:38:7: ( '>=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:38:9: '>='
             {
             match(">="); 
 
@@ -378,8 +378,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:39:7: ( '[' )
-            // cc/iqa/iquery/iQuery.g:39:9: '['
+            // src/main/java/cc/iqa/iquery/iQuery.g:39:7: ( '[' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:39:9: '['
             {
             match('['); 
 
@@ -399,8 +399,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:40:7: ( ']' )
-            // cc/iqa/iquery/iQuery.g:40:9: ']'
+            // src/main/java/cc/iqa/iquery/iQuery.g:40:7: ( ']' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:40:9: ']'
             {
             match(']'); 
 
@@ -420,8 +420,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:41:7: ( '^=' )
-            // cc/iqa/iquery/iQuery.g:41:9: '^='
+            // src/main/java/cc/iqa/iquery/iQuery.g:41:7: ( '^=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:41:9: '^='
             {
             match("^="); 
 
@@ -443,8 +443,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:42:7: ( '~' )
-            // cc/iqa/iquery/iQuery.g:42:9: '~'
+            // src/main/java/cc/iqa/iquery/iQuery.g:42:7: ( '~' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:42:9: '~'
             {
             match('~'); 
 
@@ -464,8 +464,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = DESCENDANT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:837:11: ( '>>' )
-            // cc/iqa/iquery/iQuery.g:837:13: '>>'
+            // src/main/java/cc/iqa/iquery/iQuery.g:837:11: ( '>>' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:837:13: '>>'
             {
             match(">>"); 
 
@@ -487,8 +487,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:838:3: ( 'eq' )
-            // cc/iqa/iquery/iQuery.g:838:5: 'eq'
+            // src/main/java/cc/iqa/iquery/iQuery.g:838:3: ( 'eq' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:838:5: 'eq'
             {
             match("eq"); 
 
@@ -510,8 +510,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:839:3: ( 'gt' )
-            // cc/iqa/iquery/iQuery.g:839:5: 'gt'
+            // src/main/java/cc/iqa/iquery/iQuery.g:839:3: ( 'gt' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:839:5: 'gt'
             {
             match("gt"); 
 
@@ -533,8 +533,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:840:3: ( 'lt' )
-            // cc/iqa/iquery/iQuery.g:840:5: 'lt'
+            // src/main/java/cc/iqa/iquery/iQuery.g:840:3: ( 'lt' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:840:5: 'lt'
             {
             match("lt"); 
 
@@ -556,8 +556,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:841:4: ( 'not' )
-            // cc/iqa/iquery/iQuery.g:841:6: 'not'
+            // src/main/java/cc/iqa/iquery/iQuery.g:841:4: ( 'not' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:841:6: 'not'
             {
             match("not"); 
 
@@ -579,8 +579,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = CONTAINS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:842:9: ( 'contains' )
-            // cc/iqa/iquery/iQuery.g:842:11: 'contains'
+            // src/main/java/cc/iqa/iquery/iQuery.g:842:9: ( 'contains' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:842:11: 'contains'
             {
             match("contains"); 
 
@@ -602,8 +602,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = EMPTY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:845:6: ( 'empty' )
-            // cc/iqa/iquery/iQuery.g:845:8: 'empty'
+            // src/main/java/cc/iqa/iquery/iQuery.g:845:6: ( 'empty' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:845:8: 'empty'
             {
             match("empty"); 
 
@@ -625,8 +625,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = HAS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:848:4: ( 'has' )
-            // cc/iqa/iquery/iQuery.g:848:6: 'has'
+            // src/main/java/cc/iqa/iquery/iQuery.g:848:4: ( 'has' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:848:6: 'has'
             {
             match("has"); 
 
@@ -648,8 +648,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PREV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:850:5: ( 'prev' )
-            // cc/iqa/iquery/iQuery.g:850:7: 'prev'
+            // src/main/java/cc/iqa/iquery/iQuery.g:850:5: ( 'prev' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:850:7: 'prev'
             {
             match("prev"); 
 
@@ -671,8 +671,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:851:5: ( 'next' )
-            // cc/iqa/iquery/iQuery.g:851:7: 'next'
+            // src/main/java/cc/iqa/iquery/iQuery.g:851:5: ( 'next' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:851:7: 'next'
             {
             match("next"); 
 
@@ -694,8 +694,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = SIBLINGS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:852:9: ( 'siblings' )
-            // cc/iqa/iquery/iQuery.g:852:11: 'siblings'
+            // src/main/java/cc/iqa/iquery/iQuery.g:852:9: ( 'siblings' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:852:11: 'siblings'
             {
             match("siblings"); 
 
@@ -717,8 +717,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NTH_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:853:10: ( 'nth-child' )
-            // cc/iqa/iquery/iQuery.g:853:12: 'nth-child'
+            // src/main/java/cc/iqa/iquery/iQuery.g:853:10: ( 'nth-child' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:853:12: 'nth-child'
             {
             match("nth-child"); 
 
@@ -740,8 +740,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PARENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:854:7: ( 'parent' )
-            // cc/iqa/iquery/iQuery.g:854:9: 'parent'
+            // src/main/java/cc/iqa/iquery/iQuery.g:854:7: ( 'parent' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:854:9: 'parent'
             {
             match("parent"); 
 
@@ -763,8 +763,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LAST_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:862:11: ( 'last-child' )
-            // cc/iqa/iquery/iQuery.g:862:13: 'last-child'
+            // src/main/java/cc/iqa/iquery/iQuery.g:862:11: ( 'last-child' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:862:13: 'last-child'
             {
             match("last-child"); 
 
@@ -786,8 +786,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FIRST_CHILD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:863:12: ( 'first-child' )
-            // cc/iqa/iquery/iQuery.g:863:14: 'first-child'
+            // src/main/java/cc/iqa/iquery/iQuery.g:863:12: ( 'first-child' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:863:14: 'first-child'
             {
             match("first-child"); 
 
@@ -809,8 +809,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FIRST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:864:6: ( 'first' )
-            // cc/iqa/iquery/iQuery.g:864:8: 'first'
+            // src/main/java/cc/iqa/iquery/iQuery.g:864:6: ( 'first' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:864:8: 'first'
             {
             match("first"); 
 
@@ -832,8 +832,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = LAST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:865:5: ( 'last' )
-            // cc/iqa/iquery/iQuery.g:865:7: 'last'
+            // src/main/java/cc/iqa/iquery/iQuery.g:865:5: ( 'last' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:865:7: 'last'
             {
             match("last"); 
 
@@ -855,10 +855,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = INTEGER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:866:8: ( ( DIGIT )+ )
-            // cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
+            // src/main/java/cc/iqa/iquery/iQuery.g:866:8: ( ( DIGIT )+ )
+            // src/main/java/cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
             {
-            // cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
+            // src/main/java/cc/iqa/iquery/iQuery.g:866:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -872,7 +872,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -913,10 +913,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = PERCENTAGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:867:11: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%' )
-            // cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%'
+            // src/main/java/cc/iqa/iquery/iQuery.g:867:11: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? '%'
             {
-            // cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:867:13: ( '+' | '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -925,7 +925,7 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:
+                    // src/main/java/cc/iqa/iquery/iQuery.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -943,7 +943,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:867:26: ( DIGIT )+
+            // src/main/java/cc/iqa/iquery/iQuery.g:867:26: ( DIGIT )+
             int cnt3=0;
             loop3:
             do {
@@ -957,7 +957,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -982,7 +982,7 @@ public class iQueryLexer extends Lexer {
             } while (true);
 
 
-            // cc/iqa/iquery/iQuery.g:867:33: ( '.' ( DIGIT )+ )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:867:33: ( '.' ( DIGIT )+ )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -991,11 +991,11 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:867:34: '.' ( DIGIT )+
+                    // src/main/java/cc/iqa/iquery/iQuery.g:867:34: '.' ( DIGIT )+
                     {
                     match('.'); 
 
-                    // cc/iqa/iquery/iQuery.g:867:38: ( DIGIT )+
+                    // src/main/java/cc/iqa/iquery/iQuery.g:867:38: ( DIGIT )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -1009,7 +1009,7 @@ public class iQueryLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // cc/iqa/iquery/iQuery.g:
+                    	    // src/main/java/cc/iqa/iquery/iQuery.g:
                     	    {
                     	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
                     	        input.consume();
@@ -1058,10 +1058,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:868:6: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? )
-            // cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:868:6: ( ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )? )
+            // src/main/java/cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ )?
             {
-            // cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:868:8: ( '+' | '-' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1070,7 +1070,7 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:
+                    // src/main/java/cc/iqa/iquery/iQuery.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -1088,7 +1088,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:868:21: ( DIGIT )+
+            // src/main/java/cc/iqa/iquery/iQuery.g:868:21: ( DIGIT )+
             int cnt7=0;
             loop7:
             do {
@@ -1102,7 +1102,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1127,7 +1127,7 @@ public class iQueryLexer extends Lexer {
             } while (true);
 
 
-            // cc/iqa/iquery/iQuery.g:868:28: ( '.' ( DIGIT )+ )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:868:28: ( '.' ( DIGIT )+ )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1136,11 +1136,11 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:868:29: '.' ( DIGIT )+
+                    // src/main/java/cc/iqa/iquery/iQuery.g:868:29: '.' ( DIGIT )+
                     {
                     match('.'); 
 
-                    // cc/iqa/iquery/iQuery.g:868:33: ( DIGIT )+
+                    // src/main/java/cc/iqa/iquery/iQuery.g:868:33: ( DIGIT )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -1154,7 +1154,7 @@ public class iQueryLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // cc/iqa/iquery/iQuery.g:
+                    	    // src/main/java/cc/iqa/iquery/iQuery.g:
                     	    {
                     	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
                     	        input.consume();
@@ -1199,8 +1199,8 @@ public class iQueryLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // cc/iqa/iquery/iQuery.g:869:15: ( ( '0' .. '9' ) )
-            // cc/iqa/iquery/iQuery.g:
+            // src/main/java/cc/iqa/iquery/iQuery.g:869:15: ( ( '0' .. '9' ) )
+            // src/main/java/cc/iqa/iquery/iQuery.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
                 input.consume();
@@ -1227,8 +1227,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = ELEMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:870:8: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )* )
-            // cc/iqa/iquery/iQuery.g:870:10: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
+            // src/main/java/cc/iqa/iquery/iQuery.g:870:8: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )* )
+            // src/main/java/cc/iqa/iquery/iQuery.g:870:10: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1240,7 +1240,7 @@ public class iQueryLexer extends Lexer {
             }
 
 
-            // cc/iqa/iquery/iQuery.g:870:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
+            // src/main/java/cc/iqa/iquery/iQuery.g:870:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )*
             loop10:
             do {
                 int alt10=2;
@@ -1253,7 +1253,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:
             	    {
             	    if ( input.LA(1)=='.'||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
@@ -1290,8 +1290,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = ASTERISK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:871:9: ( '*' )
-            // cc/iqa/iquery/iQuery.g:871:11: '*'
+            // src/main/java/cc/iqa/iquery/iQuery.g:871:9: ( '*' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:871:11: '*'
             {
             match('*'); 
 
@@ -1311,13 +1311,12 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = QUOTED_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:872:14: ( '\\'' ( . )+ '\\'' )
-            // cc/iqa/iquery/iQuery.g:872:16: '\\'' ( . )+ '\\''
+            // src/main/java/cc/iqa/iquery/iQuery.g:872:14: ( '\\'' ( . )* '\\'' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:872:16: '\\'' ( . )* '\\''
             {
             match('\''); 
 
-            // cc/iqa/iquery/iQuery.g:872:21: ( . )+
-            int cnt11=0;
+            // src/main/java/cc/iqa/iquery/iQuery.g:872:21: ( . )*
             loop11:
             do {
                 int alt11=2;
@@ -1333,7 +1332,7 @@ public class iQueryLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:872:21: .
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:872:21: .
             	    {
             	    matchAny(); 
 
@@ -1341,12 +1340,8 @@ public class iQueryLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt11 >= 1 ) break loop11;
-                        EarlyExitException eee =
-                            new EarlyExitException(11, input);
-                        throw eee;
+            	    break loop11;
                 }
-                cnt11++;
             } while (true);
 
 
@@ -1368,10 +1363,10 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:873:8: ( ( '\\r' )? '\\n' )
-            // cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )? '\\n'
+            // src/main/java/cc/iqa/iquery/iQuery.g:873:8: ( ( '\\r' )? '\\n' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )? '\\n'
             {
-            // cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )?
+            // src/main/java/cc/iqa/iquery/iQuery.g:873:10: ( '\\r' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1380,7 +1375,7 @@ public class iQueryLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:873:10: '\\r'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:873:10: '\\r'
                     {
                     match('\r'); 
 
@@ -1408,8 +1403,8 @@ public class iQueryLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // cc/iqa/iquery/iQuery.g:874:3: ( ( ' ' | '\\t' ) )
-            // cc/iqa/iquery/iQuery.g:874:5: ( ' ' | '\\t' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:874:3: ( ( ' ' | '\\t' ) )
+            // src/main/java/cc/iqa/iquery/iQuery.g:874:5: ( ' ' | '\\t' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1435,12 +1430,12 @@ public class iQueryLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // cc/iqa/iquery/iQuery.g:1:8: ( T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | DESCENDANT | EQ | GT | LT | NOT | CONTAINS | EMPTY | HAS | PREV | NEXT | SIBLINGS | NTH_CHILD | PARENT | LAST_CHILD | FIRST_CHILD | FIRST | LAST | INTEGER | PERCENTAGE | FLOAT | ELEMENT | ASTERISK | QUOTED_STRING | NEWLINE | WS )
+        // src/main/java/cc/iqa/iquery/iQuery.g:1:8: ( T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | DESCENDANT | EQ | GT | LT | NOT | CONTAINS | EMPTY | HAS | PREV | NEXT | SIBLINGS | NTH_CHILD | PARENT | LAST_CHILD | FIRST_CHILD | FIRST | LAST | INTEGER | PERCENTAGE | FLOAT | ELEMENT | ASTERISK | QUOTED_STRING | NEWLINE | WS )
         int alt13=42;
         alt13 = dfa13.predict(input);
         switch (alt13) {
             case 1 :
-                // cc/iqa/iquery/iQuery.g:1:10: T__30
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:10: T__30
                 {
                 mT__30(); 
 
@@ -1448,7 +1443,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 2 :
-                // cc/iqa/iquery/iQuery.g:1:16: T__31
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:16: T__31
                 {
                 mT__31(); 
 
@@ -1456,7 +1451,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 3 :
-                // cc/iqa/iquery/iQuery.g:1:22: T__32
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:22: T__32
                 {
                 mT__32(); 
 
@@ -1464,7 +1459,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 4 :
-                // cc/iqa/iquery/iQuery.g:1:28: T__33
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:28: T__33
                 {
                 mT__33(); 
 
@@ -1472,7 +1467,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 5 :
-                // cc/iqa/iquery/iQuery.g:1:34: T__34
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:34: T__34
                 {
                 mT__34(); 
 
@@ -1480,7 +1475,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 6 :
-                // cc/iqa/iquery/iQuery.g:1:40: T__35
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:40: T__35
                 {
                 mT__35(); 
 
@@ -1488,7 +1483,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 7 :
-                // cc/iqa/iquery/iQuery.g:1:46: T__36
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:46: T__36
                 {
                 mT__36(); 
 
@@ -1496,7 +1491,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 8 :
-                // cc/iqa/iquery/iQuery.g:1:52: T__37
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:52: T__37
                 {
                 mT__37(); 
 
@@ -1504,7 +1499,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // cc/iqa/iquery/iQuery.g:1:58: T__38
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:58: T__38
                 {
                 mT__38(); 
 
@@ -1512,7 +1507,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 10 :
-                // cc/iqa/iquery/iQuery.g:1:64: T__39
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:64: T__39
                 {
                 mT__39(); 
 
@@ -1520,7 +1515,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // cc/iqa/iquery/iQuery.g:1:70: T__40
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:70: T__40
                 {
                 mT__40(); 
 
@@ -1528,7 +1523,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // cc/iqa/iquery/iQuery.g:1:76: T__41
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:76: T__41
                 {
                 mT__41(); 
 
@@ -1536,7 +1531,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 13 :
-                // cc/iqa/iquery/iQuery.g:1:82: T__42
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:82: T__42
                 {
                 mT__42(); 
 
@@ -1544,7 +1539,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // cc/iqa/iquery/iQuery.g:1:88: T__43
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:88: T__43
                 {
                 mT__43(); 
 
@@ -1552,7 +1547,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 15 :
-                // cc/iqa/iquery/iQuery.g:1:94: T__44
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:94: T__44
                 {
                 mT__44(); 
 
@@ -1560,7 +1555,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // cc/iqa/iquery/iQuery.g:1:100: T__45
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:100: T__45
                 {
                 mT__45(); 
 
@@ -1568,7 +1563,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 17 :
-                // cc/iqa/iquery/iQuery.g:1:106: T__46
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:106: T__46
                 {
                 mT__46(); 
 
@@ -1576,7 +1571,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // cc/iqa/iquery/iQuery.g:1:112: DESCENDANT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:112: DESCENDANT
                 {
                 mDESCENDANT(); 
 
@@ -1584,7 +1579,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // cc/iqa/iquery/iQuery.g:1:123: EQ
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:123: EQ
                 {
                 mEQ(); 
 
@@ -1592,7 +1587,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 20 :
-                // cc/iqa/iquery/iQuery.g:1:126: GT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:126: GT
                 {
                 mGT(); 
 
@@ -1600,7 +1595,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 21 :
-                // cc/iqa/iquery/iQuery.g:1:129: LT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:129: LT
                 {
                 mLT(); 
 
@@ -1608,7 +1603,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 22 :
-                // cc/iqa/iquery/iQuery.g:1:132: NOT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:132: NOT
                 {
                 mNOT(); 
 
@@ -1616,7 +1611,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 23 :
-                // cc/iqa/iquery/iQuery.g:1:136: CONTAINS
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:136: CONTAINS
                 {
                 mCONTAINS(); 
 
@@ -1624,7 +1619,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 24 :
-                // cc/iqa/iquery/iQuery.g:1:145: EMPTY
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:145: EMPTY
                 {
                 mEMPTY(); 
 
@@ -1632,7 +1627,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 25 :
-                // cc/iqa/iquery/iQuery.g:1:151: HAS
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:151: HAS
                 {
                 mHAS(); 
 
@@ -1640,7 +1635,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // cc/iqa/iquery/iQuery.g:1:155: PREV
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:155: PREV
                 {
                 mPREV(); 
 
@@ -1648,7 +1643,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // cc/iqa/iquery/iQuery.g:1:160: NEXT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:160: NEXT
                 {
                 mNEXT(); 
 
@@ -1656,7 +1651,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 28 :
-                // cc/iqa/iquery/iQuery.g:1:165: SIBLINGS
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:165: SIBLINGS
                 {
                 mSIBLINGS(); 
 
@@ -1664,7 +1659,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // cc/iqa/iquery/iQuery.g:1:174: NTH_CHILD
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:174: NTH_CHILD
                 {
                 mNTH_CHILD(); 
 
@@ -1672,7 +1667,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // cc/iqa/iquery/iQuery.g:1:184: PARENT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:184: PARENT
                 {
                 mPARENT(); 
 
@@ -1680,7 +1675,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 31 :
-                // cc/iqa/iquery/iQuery.g:1:191: LAST_CHILD
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:191: LAST_CHILD
                 {
                 mLAST_CHILD(); 
 
@@ -1688,7 +1683,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 32 :
-                // cc/iqa/iquery/iQuery.g:1:202: FIRST_CHILD
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:202: FIRST_CHILD
                 {
                 mFIRST_CHILD(); 
 
@@ -1696,7 +1691,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 33 :
-                // cc/iqa/iquery/iQuery.g:1:214: FIRST
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:214: FIRST
                 {
                 mFIRST(); 
 
@@ -1704,7 +1699,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 34 :
-                // cc/iqa/iquery/iQuery.g:1:220: LAST
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:220: LAST
                 {
                 mLAST(); 
 
@@ -1712,7 +1707,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 35 :
-                // cc/iqa/iquery/iQuery.g:1:225: INTEGER
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:225: INTEGER
                 {
                 mINTEGER(); 
 
@@ -1720,7 +1715,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 36 :
-                // cc/iqa/iquery/iQuery.g:1:233: PERCENTAGE
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:233: PERCENTAGE
                 {
                 mPERCENTAGE(); 
 
@@ -1728,7 +1723,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 37 :
-                // cc/iqa/iquery/iQuery.g:1:244: FLOAT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:244: FLOAT
                 {
                 mFLOAT(); 
 
@@ -1736,7 +1731,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 38 :
-                // cc/iqa/iquery/iQuery.g:1:250: ELEMENT
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:250: ELEMENT
                 {
                 mELEMENT(); 
 
@@ -1744,7 +1739,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 39 :
-                // cc/iqa/iquery/iQuery.g:1:258: ASTERISK
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:258: ASTERISK
                 {
                 mASTERISK(); 
 
@@ -1752,7 +1747,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 40 :
-                // cc/iqa/iquery/iQuery.g:1:267: QUOTED_STRING
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:267: QUOTED_STRING
                 {
                 mQUOTED_STRING(); 
 
@@ -1760,7 +1755,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 41 :
-                // cc/iqa/iquery/iQuery.g:1:281: NEWLINE
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:281: NEWLINE
                 {
                 mNEWLINE(); 
 
@@ -1768,7 +1763,7 @@ public class iQueryLexer extends Lexer {
                 }
                 break;
             case 42 :
-                // cc/iqa/iquery/iQuery.g:1:289: WS
+                // src/main/java/cc/iqa/iquery/iQuery.g:1:289: WS
                 {
                 mWS(); 
 

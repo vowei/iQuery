@@ -1,0 +1,27 @@
+<assembly>
+  <id>${project.artifactId}</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>true</useProjectArtifact>
+      <outputDirectory>lib</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+  <fileSets>
+    <fileSet>
+      <directory>target/${artifactId}</directory>
+      <includes>
+	<include>**/*.*</include>
+      </includes>
+      <outputDirectory>/</outputDirectory>    
+    </fileSet>
+    <fileSet>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+	<include>manifest.txt</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 cc/iqa/iquery/iQuery.g 2012-09-06 19:14:25
+// $ANTLR 3.4 src/main/java/cc/iqa/iquery/iQuery.g 2012-11-03 04:14:56
 
 package cc.iqa.iquery;
 
@@ -84,7 +84,7 @@ public class iQueryParser extends Parser {
     }
 
     public String[] getTokenNames() { return iQueryParser.tokenNames; }
-    public String getGrammarFileName() { return "cc/iqa/iquery/iQuery.g"; }
+    public String getGrammarFileName() { return "src/main/java/cc/iqa/iquery/iQuery.g"; }
 
 
     private static final Logger _logger = 
@@ -301,7 +301,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "query"
-    // cc/iqa/iquery/iQuery.g:254:1: query[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF );
+    // src/main/java/cc/iqa/iquery/iQuery.g:254:1: query[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF );
     public final List<ITreeNode> query(List<ITreeNode> candidates) throws RecognitionException {
         List<ITreeNode> survival = null;
 
@@ -310,7 +310,7 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:255:5: ( selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF )
+            // src/main/java/cc/iqa/iquery/iQuery.g:255:5: ( selectors[$candidates] ( NEWLINE )* EOF | ( NEWLINE )* EOF )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -329,7 +329,7 @@ public class iQueryParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:255:7: selectors[$candidates] ( NEWLINE )* EOF
+                    // src/main/java/cc/iqa/iquery/iQuery.g:255:7: selectors[$candidates] ( NEWLINE )* EOF
                     {
                     pushFollow(FOLLOW_selectors_in_query58);
                     selectors1=selectors(candidates);
@@ -337,7 +337,7 @@ public class iQueryParser extends Parser {
                     state._fsp--;
 
 
-                    // cc/iqa/iquery/iQuery.g:255:30: ( NEWLINE )*
+                    // src/main/java/cc/iqa/iquery/iQuery.g:255:30: ( NEWLINE )*
                     loop1:
                     do {
                         int alt1=2;
@@ -350,7 +350,7 @@ public class iQueryParser extends Parser {
 
                         switch (alt1) {
                     	case 1 :
-                    	    // cc/iqa/iquery/iQuery.g:255:30: NEWLINE
+                    	    // src/main/java/cc/iqa/iquery/iQuery.g:255:30: NEWLINE
                     	    {
                     	    match(input,NEWLINE,FOLLOW_NEWLINE_in_query61); 
 
@@ -376,9 +376,9 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:263:7: ( NEWLINE )* EOF
+                    // src/main/java/cc/iqa/iquery/iQuery.g:263:7: ( NEWLINE )* EOF
                     {
-                    // cc/iqa/iquery/iQuery.g:263:7: ( NEWLINE )*
+                    // src/main/java/cc/iqa/iquery/iQuery.g:263:7: ( NEWLINE )*
                     loop2:
                     do {
                         int alt2=2;
@@ -391,7 +391,7 @@ public class iQueryParser extends Parser {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // cc/iqa/iquery/iQuery.g:263:7: NEWLINE
+                    	    // src/main/java/cc/iqa/iquery/iQuery.g:263:7: NEWLINE
                     	    {
                     	    match(input,NEWLINE,FOLLOW_NEWLINE_in_query82); 
 
@@ -434,7 +434,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "selectors"
-    // cc/iqa/iquery/iQuery.g:269:1: selectors[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )* ;
+    // src/main/java/cc/iqa/iquery/iQuery.g:269:1: selectors[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )* ;
     public final iQueryParser.selectors_return selectors(List<ITreeNode> candidates) throws RecognitionException {
         iQueryParser.selectors_return retval = new iQueryParser.selectors_return();
         retval.start = input.LT(1);
@@ -446,8 +446,8 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:270:5: (p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )* )
-            // cc/iqa/iquery/iQuery.g:270:7: p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )*
+            // src/main/java/cc/iqa/iquery/iQuery.g:270:5: (p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )* )
+            // src/main/java/cc/iqa/iquery/iQuery.g:270:7: p= multi_selectors[$candidates] (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )*
             {
             pushFollow(FOLLOW_multi_selectors_in_selectors121);
             p=multi_selectors(candidates);
@@ -455,7 +455,7 @@ public class iQueryParser extends Parser {
             state._fsp--;
 
 
-            // cc/iqa/iquery/iQuery.g:270:38: (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )*
+            // src/main/java/cc/iqa/iquery/iQuery.g:270:38: (c= multi_selectors[$c.survival == null ? $p.survival : $c.survival] )*
             loop4:
             do {
                 int alt4=2;
@@ -468,7 +468,7 @@ public class iQueryParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // cc/iqa/iquery/iQuery.g:270:39: c= multi_selectors[$c.survival == null ? $p.survival : $c.survival]
+            	    // src/main/java/cc/iqa/iquery/iQuery.g:270:39: c= multi_selectors[$c.survival == null ? $p.survival : $c.survival]
             	    {
             	    pushFollow(FOLLOW_multi_selectors_in_selectors127);
             	    c=multi_selectors(c == null ? p : c);
@@ -514,7 +514,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "multi_selectors"
-    // cc/iqa/iquery/iQuery.g:280:1: multi_selectors[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( selector[$candidates] | '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()] | '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))] | DESCENDANT c= selector[descendants($candidates, -1)] );
+    // src/main/java/cc/iqa/iquery/iQuery.g:280:1: multi_selectors[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( selector[$candidates] | '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()] | '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))] | DESCENDANT c= selector[descendants($candidates, -1)] );
     public final List<ITreeNode> multi_selectors(List<ITreeNode> candidates) throws RecognitionException {
         List<ITreeNode> survival = null;
 
@@ -526,7 +526,7 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:281:5: ( selector[$candidates] | '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()] | '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))] | DESCENDANT c= selector[descendants($candidates, -1)] )
+            // src/main/java/cc/iqa/iquery/iQuery.g:281:5: ( selector[$candidates] | '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()] | '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))] | DESCENDANT c= selector[descendants($candidates, -1)] )
             int alt5=4;
             switch ( input.LA(1) ) {
             case ASTERISK:
@@ -572,7 +572,7 @@ public class iQueryParser extends Parser {
 
             switch (alt5) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:281:7: selector[$candidates]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:281:7: selector[$candidates]
                     {
                     pushFollow(FOLLOW_selector_in_multi_selectors164);
                     selector2=selector(candidates);
@@ -587,7 +587,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:285:7: '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:285:7: '>' c= selector[$candidates.size() > 0 ? $candidates.get(0).getChildren() : new ArrayList<ITreeNode>()]
                     {
                     match(input,41,FOLLOW_41_in_multi_selectors183); 
 
@@ -605,7 +605,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // cc/iqa/iquery/iQuery.g:290:7: '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:290:7: '>' level= INTEGER c= selector[descendants($candidates, Integer.parseInt($level.text))]
                     {
                     match(input,41,FOLLOW_41_in_multi_selectors206); 
 
@@ -625,7 +625,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // cc/iqa/iquery/iQuery.g:296:7: DESCENDANT c= selector[descendants($candidates, -1)]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:296:7: DESCENDANT c= selector[descendants($candidates, -1)]
                     {
                     match(input,DESCENDANT,FOLLOW_DESCENDANT_in_multi_selectors242); 
 
@@ -664,7 +664,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "selector"
-    // cc/iqa/iquery/iQuery.g:303:1: selector[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] );
+    // src/main/java/cc/iqa/iquery/iQuery.g:303:1: selector[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] );
     public final iQueryParser.selector_return selector(List<ITreeNode> candidates) throws RecognitionException {
         iQueryParser.selector_return retval = new iQueryParser.selector_return();
         retval.start = input.LT(1);
@@ -678,7 +678,7 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:304:5: (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] )
+            // src/main/java/cc/iqa/iquery/iQuery.g:304:5: (p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )? | multi_attributes[$candidates] )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -697,7 +697,7 @@ public class iQueryParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:304:7: p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
+                    // src/main/java/cc/iqa/iquery/iQuery.g:304:7: p= selector_expression[$candidates] ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
                     {
                     pushFollow(FOLLOW_selector_expression_in_selector283);
                     p=selector_expression(candidates);
@@ -705,7 +705,7 @@ public class iQueryParser extends Parser {
                     state._fsp--;
 
 
-                    // cc/iqa/iquery/iQuery.g:305:9: ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
+                    // src/main/java/cc/iqa/iquery/iQuery.g:305:9: ( ( '+' n= selector_expression[next($candidates, $p.survival)] ) | ( '~' n= selector_expression[siblings($candidates, $p.survival)] ) )?
                     int alt6=3;
                     int LA6_0 = input.LA(1);
 
@@ -717,10 +717,10 @@ public class iQueryParser extends Parser {
                     }
                     switch (alt6) {
                         case 1 :
-                            // cc/iqa/iquery/iQuery.g:306:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
+                            // src/main/java/cc/iqa/iquery/iQuery.g:306:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
                             {
-                            // cc/iqa/iquery/iQuery.g:306:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
-                            // cc/iqa/iquery/iQuery.g:306:14: '+' n= selector_expression[next($candidates, $p.survival)]
+                            // src/main/java/cc/iqa/iquery/iQuery.g:306:13: ( '+' n= selector_expression[next($candidates, $p.survival)] )
+                            // src/main/java/cc/iqa/iquery/iQuery.g:306:14: '+' n= selector_expression[next($candidates, $p.survival)]
                             {
                             match(input,36,FOLLOW_36_in_selector310); 
 
@@ -736,10 +736,10 @@ public class iQueryParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // cc/iqa/iquery/iQuery.g:308:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
+                            // src/main/java/cc/iqa/iquery/iQuery.g:308:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
                             {
-                            // cc/iqa/iquery/iQuery.g:308:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
-                            // cc/iqa/iquery/iQuery.g:308:14: '~' n= selector_expression[siblings($candidates, $p.survival)]
+                            // src/main/java/cc/iqa/iquery/iQuery.g:308:13: ( '~' n= selector_expression[siblings($candidates, $p.survival)] )
+                            // src/main/java/cc/iqa/iquery/iQuery.g:308:14: '~' n= selector_expression[siblings($candidates, $p.survival)]
                             {
                             match(input,46,FOLLOW_46_in_selector341); 
 
@@ -769,7 +769,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:318:7: multi_attributes[$candidates]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:318:7: multi_attributes[$candidates]
                     {
                     pushFollow(FOLLOW_multi_attributes_in_selector377);
                     multi_attributes3=multi_attributes(candidates);
@@ -807,15 +807,15 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "num_comp_op"
-    // cc/iqa/iquery/iQuery.g:324:1: num_comp_op : ( '>' | '<' | '>=' | '<=' | '=' );
+    // src/main/java/cc/iqa/iquery/iQuery.g:324:1: num_comp_op : ( '>' | '<' | '>=' | '<=' | '=' );
     public final iQueryParser.num_comp_op_return num_comp_op() throws RecognitionException {
         iQueryParser.num_comp_op_return retval = new iQueryParser.num_comp_op_return();
         retval.start = input.LT(1);
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:325:5: ( '>' | '<' | '>=' | '<=' | '=' )
-            // cc/iqa/iquery/iQuery.g:
+            // src/main/java/cc/iqa/iquery/iQuery.g:325:5: ( '>' | '<' | '>=' | '<=' | '=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:
             {
             if ( (input.LA(1) >= 38 && input.LA(1) <= 42) ) {
                 input.consume();
@@ -848,7 +848,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "multi_attributes"
-    // cc/iqa/iquery/iQuery.g:332:1: multi_attributes[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );
+    // src/main/java/cc/iqa/iquery/iQuery.g:332:1: multi_attributes[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' );
     public final List<ITreeNode> multi_attributes(List<ITreeNode> candidates) throws RecognitionException {
         List<ITreeNode> survival = null;
 
@@ -865,7 +865,7 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:333:5: ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:333:5: ( '[' attr= ELEMENT op v= QUOTED_STRING ']' | '[' ':' attr= ELEMENT op v= QUOTED_STRING ']' | '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']' | '[' attr= ELEMENT ']' )
             int alt8=5;
             int LA8_0 = input.LA(1);
 
@@ -997,7 +997,7 @@ public class iQueryParser extends Parser {
             }
             switch (alt8) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:333:7: '[' attr= ELEMENT op v= QUOTED_STRING ']'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:333:7: '[' attr= ELEMENT op v= QUOTED_STRING ']'
                     {
                     match(input,43,FOLLOW_43_in_multi_attributes461); 
 
@@ -1071,7 +1071,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:388:7: '[' ':' attr= ELEMENT op v= QUOTED_STRING ']'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:388:7: '[' ':' attr= ELEMENT op v= QUOTED_STRING ']'
                     {
                     match(input,43,FOLLOW_43_in_multi_attributes491); 
 
@@ -1129,7 +1129,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // cc/iqa/iquery/iQuery.g:425:7: '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:425:7: '[' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']'
                     {
                     match(input,43,FOLLOW_43_in_multi_attributes523); 
 
@@ -1213,7 +1213,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // cc/iqa/iquery/iQuery.g:480:7: '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:480:7: '[' ':' attr= ELEMENT num_comp_op v= ( INTEGER | FLOAT | PERCENTAGE ) ']'
                     {
                     match(input,43,FOLLOW_43_in_multi_attributes563); 
 
@@ -1285,7 +1285,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // cc/iqa/iquery/iQuery.g:521:7: '[' attr= ELEMENT ']'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:521:7: '[' attr= ELEMENT ']'
                     {
                     match(input,43,FOLLOW_43_in_multi_attributes605); 
 
@@ -1333,15 +1333,15 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "op"
-    // cc/iqa/iquery/iQuery.g:540:1: op : ( '=' | '!=' | '$=' | '^=' | '*=' );
+    // src/main/java/cc/iqa/iquery/iQuery.g:540:1: op : ( '=' | '!=' | '$=' | '^=' | '*=' );
     public final iQueryParser.op_return op() throws RecognitionException {
         iQueryParser.op_return retval = new iQueryParser.op_return();
         retval.start = input.LT(1);
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:541:5: ( '=' | '!=' | '$=' | '^=' | '*=' )
-            // cc/iqa/iquery/iQuery.g:
+            // src/main/java/cc/iqa/iquery/iQuery.g:541:5: ( '=' | '!=' | '$=' | '^=' | '*=' )
+            // src/main/java/cc/iqa/iquery/iQuery.g:
             {
             if ( input.LA(1)==30||input.LA(1)==32||input.LA(1)==35||input.LA(1)==40||input.LA(1)==45 ) {
                 input.consume();
@@ -1377,15 +1377,15 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "indexop"
-    // cc/iqa/iquery/iQuery.g:548:1: indexop : ( EQ | GT | LT | NTH_CHILD );
+    // src/main/java/cc/iqa/iquery/iQuery.g:548:1: indexop : ( EQ | GT | LT | NTH_CHILD );
     public final iQueryParser.indexop_return indexop() throws RecognitionException {
         iQueryParser.indexop_return retval = new iQueryParser.indexop_return();
         retval.start = input.LT(1);
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:549:5: ( EQ | GT | LT | NTH_CHILD )
-            // cc/iqa/iquery/iQuery.g:
+            // src/main/java/cc/iqa/iquery/iQuery.g:549:5: ( EQ | GT | LT | NTH_CHILD )
+            // src/main/java/cc/iqa/iquery/iQuery.g:
             {
             if ( input.LA(1)==EQ||input.LA(1)==GT||input.LA(1)==LT||input.LA(1)==NTH_CHILD ) {
                 input.consume();
@@ -1418,7 +1418,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "selector_expression"
-    // cc/iqa/iquery/iQuery.g:555:1: selector_expression[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( atom[$candidates] | ':' indexop '(' vidx= INTEGER ')' | ':' NOT '(' selectors[$candidates] ')' | ':' HAS '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' PARENT | ':' ELEMENT | '#' ELEMENT );
+    // src/main/java/cc/iqa/iquery/iQuery.g:555:1: selector_expression[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( atom[$candidates] | ':' indexop '(' vidx= INTEGER ')' | ':' NOT '(' selectors[$candidates] ')' | ':' HAS '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' PARENT | ':' ELEMENT | '#' ELEMENT );
     public final List<ITreeNode> selector_expression(List<ITreeNode> candidates) throws RecognitionException {
         List<ITreeNode> survival = null;
 
@@ -1437,7 +1437,7 @@ public class iQueryParser extends Parser {
 
 
         try {
-            // cc/iqa/iquery/iQuery.g:556:5: ( atom[$candidates] | ':' indexop '(' vidx= INTEGER ')' | ':' NOT '(' selectors[$candidates] ')' | ':' HAS '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' PARENT | ':' ELEMENT | '#' ELEMENT )
+            // src/main/java/cc/iqa/iquery/iQuery.g:556:5: ( atom[$candidates] | ':' indexop '(' vidx= INTEGER ')' | ':' NOT '(' selectors[$candidates] ')' | ':' HAS '(' selectors[$candidates] ')' | ':' CONTAINS '(' text= QUOTED_STRING ')' | ':' LAST_CHILD | ':' FIRST_CHILD | ':' FIRST | ':' LAST | ':' EMPTY | ':' PARENT | ':' ELEMENT | '#' ELEMENT )
             int alt9=13;
             switch ( input.LA(1) ) {
             case ASTERISK:
@@ -1532,7 +1532,7 @@ public class iQueryParser extends Parser {
 
             switch (alt9) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:556:7: atom[$candidates]
+                    // src/main/java/cc/iqa/iquery/iQuery.g:556:7: atom[$candidates]
                     {
                     pushFollow(FOLLOW_atom_in_selector_expression735);
                     atom8=atom(candidates);
@@ -1547,7 +1547,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:560:7: ':' indexop '(' vidx= INTEGER ')'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:560:7: ':' indexop '(' vidx= INTEGER ')'
                     {
                     match(input,37,FOLLOW_37_in_selector_expression754); 
 
@@ -1599,7 +1599,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // cc/iqa/iquery/iQuery.g:593:7: ':' NOT '(' selectors[$candidates] ')'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:593:7: ':' NOT '(' selectors[$candidates] ')'
                     {
                     match(input,37,FOLLOW_37_in_selector_expression782); 
 
@@ -1625,7 +1625,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // cc/iqa/iquery/iQuery.g:600:7: ':' HAS '(' selectors[$candidates] ')'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:600:7: ':' HAS '(' selectors[$candidates] ')'
                     {
                     match(input,37,FOLLOW_37_in_selector_expression809); 
 
@@ -1658,7 +1658,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // cc/iqa/iquery/iQuery.g:614:7: ':' CONTAINS '(' text= QUOTED_STRING ')'
+                    // src/main/java/cc/iqa/iquery/iQuery.g:614:7: ':' CONTAINS '(' text= QUOTED_STRING ')'
                     {
                     match(input,37,FOLLOW_37_in_selector_expression836); 
 
@@ -1719,7 +1719,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // cc/iqa/iquery/iQuery.g:660:7: ':' LAST_CHILD
+                    // src/main/java/cc/iqa/iquery/iQuery.g:660:7: ':' LAST_CHILD
                     {
                     match(input,37,FOLLOW_37_in_selector_expression864); 
 
@@ -1742,7 +1742,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // cc/iqa/iquery/iQuery.g:674:7: ':' FIRST_CHILD
+                    // src/main/java/cc/iqa/iquery/iQuery.g:674:7: ':' FIRST_CHILD
                     {
                     match(input,37,FOLLOW_37_in_selector_expression884); 
 
@@ -1764,7 +1764,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // cc/iqa/iquery/iQuery.g:687:7: ':' FIRST
+                    // src/main/java/cc/iqa/iquery/iQuery.g:687:7: ':' FIRST
                     {
                     match(input,37,FOLLOW_37_in_selector_expression904); 
 
@@ -1785,7 +1785,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // cc/iqa/iquery/iQuery.g:699:7: ':' LAST
+                    // src/main/java/cc/iqa/iquery/iQuery.g:699:7: ':' LAST
                     {
                     match(input,37,FOLLOW_37_in_selector_expression924); 
 
@@ -1806,7 +1806,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // cc/iqa/iquery/iQuery.g:712:7: ':' EMPTY
+                    // src/main/java/cc/iqa/iquery/iQuery.g:712:7: ':' EMPTY
                     {
                     match(input,37,FOLLOW_37_in_selector_expression945); 
 
@@ -1827,7 +1827,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // cc/iqa/iquery/iQuery.g:724:7: ':' PARENT
+                    // src/main/java/cc/iqa/iquery/iQuery.g:724:7: ':' PARENT
                     {
                     match(input,37,FOLLOW_37_in_selector_expression965); 
 
@@ -1846,7 +1846,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 12 :
-                    // cc/iqa/iquery/iQuery.g:789:7: ':' ELEMENT
+                    // src/main/java/cc/iqa/iquery/iQuery.g:789:7: ':' ELEMENT
                     {
                     match(input,37,FOLLOW_37_in_selector_expression995); 
 
@@ -1859,7 +1859,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // cc/iqa/iquery/iQuery.g:793:7: '#' ELEMENT
+                    // src/main/java/cc/iqa/iquery/iQuery.g:793:7: '#' ELEMENT
                     {
                     match(input,31,FOLLOW_31_in_selector_expression1015); 
 
@@ -1898,7 +1898,7 @@ public class iQueryParser extends Parser {
 
 
     // $ANTLR start "atom"
-    // cc/iqa/iquery/iQuery.g:808:1: atom[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( ASTERISK | ELEMENT );
+    // src/main/java/cc/iqa/iquery/iQuery.g:808:1: atom[List<ITreeNode> candidates] returns [List<ITreeNode> survival] : ( ASTERISK | ELEMENT );
     public final List<ITreeNode> atom(List<ITreeNode> candidates) throws RecognitionException {
         List<ITreeNode> survival = null;
 
@@ -1906,7 +1906,7 @@ public class iQueryParser extends Parser {
         Token ELEMENT14=null;
 
         try {
-            // cc/iqa/iquery/iQuery.g:809:5: ( ASTERISK | ELEMENT )
+            // src/main/java/cc/iqa/iquery/iQuery.g:809:5: ( ASTERISK | ELEMENT )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1925,7 +1925,7 @@ public class iQueryParser extends Parser {
             }
             switch (alt10) {
                 case 1 :
-                    // cc/iqa/iquery/iQuery.g:809:7: ASTERISK
+                    // src/main/java/cc/iqa/iquery/iQuery.g:809:7: ASTERISK
                     {
                     match(input,ASTERISK,FOLLOW_ASTERISK_in_atom1051); 
 
@@ -1937,7 +1937,7 @@ public class iQueryParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // cc/iqa/iquery/iQuery.g:814:7: ELEMENT
+                    // src/main/java/cc/iqa/iquery/iQuery.g:814:7: ELEMENT
                     {
                     ELEMENT14=(Token)match(input,ELEMENT,FOLLOW_ELEMENT_in_atom1069); 
 

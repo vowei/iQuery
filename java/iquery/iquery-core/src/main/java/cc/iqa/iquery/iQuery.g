@@ -869,6 +869,6 @@ FLOAT: ('+' | '-')? DIGIT+ ('.' DIGIT+)?;
 fragment DIGIT: ('0' .. '9');
 ELEMENT: ('a'..'z'|'A'..'Z'|'_')('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'.')*;
 ASTERISK: '*';
-QUOTED_STRING: '\'' .+ '\''; 
+QUOTED_STRING: '\'' .* '\''; 
 NEWLINE: '\r'? '\n';
 WS: (' ' | '\t') { skip(); };

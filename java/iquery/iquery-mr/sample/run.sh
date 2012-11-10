@@ -1,0 +1,1 @@
+exec java -Xmx128M -Djava.ext.dirs=$ANDROID_HOME/tools/lib:$ANDROID_HOME/tools/lib/x86:. -Djava.library.path=$ANDROID_HOME/tools/lib -Dcom.android.monkeyrunner.bindir=$ANDROID_HOME/tools -jar $ANDROID_HOME/tools/lib/monkeyrunner.jar -plugin iquery-mr-1.0-RC.jar sample.py

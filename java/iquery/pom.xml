@@ -12,6 +12,7 @@
     <module>iquery-core</module>
     <module>iquery-monkey</module>
     <module>iquery-instrumentation</module>
+    <module>iquery-mr</module>
   </modules>
 
   <build>
