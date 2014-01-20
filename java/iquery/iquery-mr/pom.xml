@@ -40,14 +40,14 @@
       <artifactId>android-sdk-guavalib</artifactId>
       <version>20.0.3</version>
       <scope>system</scope>
-      <systemPath>${env.ANDROID_HOME}/tools/lib/guavalib.jar</systemPath>
+      <systemPath>${env.ANDROID_HOME}/tools/lib/guava-13.0.1.jar</systemPath>
     </dependency>            
     <dependency>
       <groupId>com.google.android.jython</groupId>
       <artifactId>android-sdk-jython</artifactId>
       <version>20.0.3</version>
       <scope>system</scope>
-      <systemPath>${env.ANDROID_HOME}/tools/lib/jython.jar</systemPath>
+      <systemPath>${env.ANDROID_HOME}/tools/lib/jython-standalone-2.5.3.jar</systemPath>
     </dependency>            
     <dependency>
       <groupId>com.google.android.ddmuilib</groupId>
@@ -61,7 +61,7 @@
       <artifactId>android-sdk-hierarchyviewerlib</artifactId>
       <version>20.0.3</version>
       <scope>system</scope>
-      <systemPath>${env.ANDROID_HOME}/tools/lib/hierarchyviewerlib.jar</systemPath>
+      <systemPath>${env.ANDROID_HOME}/tools/lib/hierarchyviewer2lib.jar</systemPath>
     </dependency>            
     <dependency>
       <groupId>com.google.android.ddmlib</groupId>
